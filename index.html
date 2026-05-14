@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>心腦筆記 | 心理學 × 學習法</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Caveat:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf8f0;
+    --paper: #fff9ee;
+    --yellow: #ffd94a;
+    --coral: #ff7043;
+    --teal: #26a69a;
+    --navy: #1a237e;
+    --purple: #7c4dff;
+    --pink: #f06292;
+    --green: #66bb6a;
+    --orange: #ffa726;
+    --ink: #1c1c2e;
+    --gray: #757575;
+    --light-gray: #e8e0d5;
+    --shadow: rgba(0,0,0,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', 'Noto Serif TC', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ========== HEADER ========== */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: var(--paper);
+    border-bottom: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--yellow);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 64px;
+  }
+
+  .logo {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem; font-weight: 700;
+    color: var(--ink); text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo .logo-icon { font-size: 1.6rem; }
+
+  nav { display: flex; gap: 4px; }
+  nav a {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.88rem; font-weight: 700;
+    color: var(--ink); text-decoration: none;
+    padding: 8px 14px; border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  nav a:hover, nav a.active {
+    background: var(--yellow);
+    border-color: var(--ink);
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    background: none; border: none; padding: 4px;
+  }
+  .hamburger span {
+    width: 26px; height: 3px; background: var(--ink);
+    border-radius: 2px; transition: 0.3s;
+  }
+
+  /* mobile nav */
+  .mobile-nav {
+    display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 998;
+    background: var(--paper); border-bottom: 3px solid var(--ink);
+    flex-direction: column; padding: 16px;
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-size: 1rem; font-weight: 700; color: var(--ink);
+    text-decoration: none; padding: 12px 16px;
+    border-bottom: 2px dashed var(--light-gray);
+    cursor: pointer;
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+
+  /* ========== PAGES ========== */
+  .page { display: none; padding-top: 64px; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ========== HOME PAGE ========== */
+  #page-home {
+    background: var(--cream);
+    position: relative; overflow: hidden;
+  }
+
+  .hero {
+    min-height: calc(100vh - 64px);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 40px 24px;
+    position: relative;
+  }
+
+  /* Floating stickers background */
+  .stickers {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  }
+  .sticker {
+    position: absolute; font-size: 2.4rem; opacity: 0.18;
+    animation: floatSticker linear infinite;
+  }
+  @keyframes floatSticker {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.18; }
+    90% { opacity: 0.18; }
+    100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--yellow); color: var(--ink);
+    font-family: 'Caveat', cursive; font-size: 1.1rem; font-weight: 700;
+    padding: 6px 20px; border-radius: 30px;
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    margin-bottom: 24px;
+    animation: bounceIn 0.8s cubic-bezier(.36,.07,.19,.97);
+  }
+  @keyframes bounceIn {
+    0% { transform: scale(0) rotate(-10deg); }
+    60% { transform: scale(1.15) rotate(3deg); }
+    100% { transform: scale(1) rotate(0); }
+  }
+
+  .hero h1 {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(3.2rem, 10vw, 7rem);
+    font-weight: 700; line-height: 1.05;
+    color: var(--ink); margin-bottom: 16px;
+    position: relative;
+    animation: slideUp 0.9s ease both 0.2s;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 .highlight {
+    position: relative; display: inline-block;
+    color: var(--coral);
+  }
+  .hero h1 .highlight::after {
+    content: '';
+    position: absolute; left: -4px; right: -4px; bottom: -4px; top: -4px;
+    background: var(--yellow); z-index: -1;
+    transform: rotate(-2deg);
+    border-radius: 4px;
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--gray); max-width: 560px; line-height: 1.7;
+    margin-bottom: 36px;
+    animation: slideUp 0.9s ease both 0.4s;
+  }
+
+  .hero-buttons {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    animation: slideUp 0.9s ease both 0.6s;
+  }
+
+  .btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800; font-size: 1rem;
+    padding: 14px 28px; border-radius: 12px;
+    border: 3px solid var(--ink);
+    cursor: pointer; text-decoration: none;
+    transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn:hover { transform: translate(-3px, -3px); }
+  .btn-primary {
+    background: var(--coral); color: #fff;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .btn-primary:hover { box-shadow: 8px 8px 0 var(--ink); }
+  .btn-secondary {
+    background: var(--paper); color: var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .btn-secondary:hover { box-shadow: 8px 8px 0 var(--ink); }
+  .btn-teal {
+    background: var(--teal); color: #fff;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .btn-teal:hover { box-shadow: 8px 8px 0 var(--ink); }
+
+  /* Scroll worm animation */
+  .scroll-worm {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    animation: fadeInUp 1s ease both 1s;
+  }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+  .scroll-worm span { font-size: 0.8rem; color: var(--gray); font-family: 'Caveat', cursive; font-size: 1rem; }
+  .scroll-arrow { width: 24px; height: 24px; border-right: 3px solid var(--gray); border-bottom: 3px solid var(--gray); transform: rotate(45deg); animation: arrowBounce 1.4s ease infinite; }
+  @keyframes arrowBounce { 0%,100%{transform:rotate(45deg) translateY(0);} 50%{transform:rotate(45deg) translateY(6px);} }
+
+  /* Feature cards */
+  .section-title {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+    color: var(--ink); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-title::after {
+    content: ''; flex: 1; height: 3px;
+    background: repeating-linear-gradient(90deg, var(--ink) 0, var(--ink) 8px, transparent 8px, transparent 16px);
+    max-width: 200px;
+  }
+
+  .home-features { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; margin-top: 40px;
+  }
+  .feature-card {
+    background: var(--paper); border: 3px solid var(--ink);
+    border-radius: 20px; padding: 32px 28px;
+    position: relative; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+  .feature-card:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 var(--ink); }
+  .feature-card .card-icon {
+    font-size: 3rem; margin-bottom: 16px; display: block;
+  }
+  .feature-card h3 { font-family: 'Caveat', cursive; font-size: 1.8rem; margin-bottom: 12px; }
+  .feature-card p { color: var(--gray); line-height: 1.6; font-size: 0.95rem; }
+  .card-tag {
+    position: absolute; top: -12px; right: 20px;
+    background: var(--yellow); color: var(--ink);
+    font-size: 0.75rem; font-weight: 800;
+    padding: 4px 12px; border-radius: 20px; border: 2px solid var(--ink);
+  }
+  .card-coral { border-color: var(--coral); box-shadow: 6px 6px 0 var(--coral); }
+  .card-coral:hover { box-shadow: 10px 10px 0 var(--coral); }
+  .card-teal { border-color: var(--teal); box-shadow: 6px 6px 0 var(--teal); }
+  .card-teal:hover { box-shadow: 10px 10px 0 var(--teal); }
+
+  /* Tape decorations */
+  .tape {
+    position: absolute; width: 80px; height: 28px;
+    opacity: 0.7; transform: rotate(-5deg);
+  }
+  .tape-yellow { background: rgba(255,217,74,0.75); }
+  .tape-pink { background: rgba(240,98,146,0.5); }
+  .tape-teal { background: rgba(38,166,154,0.45); }
+
+  /* ========== QUIZ PAGE ========== */
+  #page-quiz {
+    background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 50%, #fce4ec 100%);
+    min-height: 100vh;
+  }
+
+  .quiz-wrapper {
+    max-width: 780px; margin: 0 auto; padding: 40px 24px 100px;
+  }
+
+  .quiz-header-bar {
+    text-align: center; margin-bottom: 32px;
+  }
+  .quiz-header-bar h2 {
+    font-family: 'Caveat', cursive; font-size: 2.2rem; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .quiz-header-bar p { color: var(--gray); font-size: 0.9rem; }
+
+  /* Progress */
+  .progress-bar-wrap {
+    background: rgba(255,255,255,0.7); border: 3px solid var(--ink);
+    border-radius: 40px; padding: 6px; margin-bottom: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .progress-bar-fill {
+    height: 18px; border-radius: 30px;
+    background: linear-gradient(90deg, var(--coral), var(--yellow));
+    transition: width 0.5s cubic-bezier(.36,.07,.19,.97);
+    position: relative; min-width: 18px;
+  }
+  .progress-bar-fill::after {
+    content: '✏️';
+    position: absolute; right: -4px; top: -4px;
+    font-size: 1.1rem;
+  }
+  .progress-text {
+    text-align: right; font-size: 0.85rem; color: var(--gray);
+    font-weight: 700; margin-bottom: 24px;
+    font-family: 'Caveat', cursive; font-size: 1rem;
+  }
+
+  /* Question card */
+  .question-card {
+    background: var(--paper); border: 3px solid var(--ink);
+    border-radius: 24px; padding: 40px 36px;
+    box-shadow: 8px 8px 0 var(--ink);
+    position: relative; overflow: hidden;
+    margin-bottom: 24px;
+    animation: cardIn 0.4s ease both;
+  }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(20px) rotate(1deg); }
+    to { opacity: 1; transform: translateY(0) rotate(0); }
+  }
+
+  .question-tag {
+    display: inline-block;
+    background: var(--purple); color: #fff;
+    font-size: 0.78rem; font-weight: 800;
+    padding: 4px 14px; border-radius: 20px;
+    border: 2px solid var(--ink); margin-bottom: 16px;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .question-scenario {
+    background: rgba(255,217,74,0.3);
+    border-left: 4px solid var(--yellow);
+    padding: 12px 16px; border-radius: 0 12px 12px 0;
+    font-size: 0.85rem; color: var(--gray);
+    margin-bottom: 20px; font-style: italic;
+  }
+
+  .question-text {
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    font-weight: 700; line-height: 1.6;
+    margin-bottom: 28px;
+    font-family: 'Noto Serif TC', serif;
+  }
+
+  /* Options */
+  .options-list { display: flex; flex-direction: column; gap: 12px; }
+  .option-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--cream); border: 3px solid var(--light-gray);
+    border-radius: 16px; padding: 16px 20px;
+    cursor: pointer; transition: all 0.18s;
+    position: relative;
+  }
+  .option-item:hover {
+    border-color: var(--teal); background: rgba(38,166,154,0.07);
+    transform: translateX(6px);
+    box-shadow: 4px 4px 0 var(--teal);
+  }
+  .option-item.selected {
+    border-color: var(--coral); background: rgba(255,112,67,0.1);
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .option-letter {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--light-gray); border: 2px solid var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.85rem; flex-shrink: 0;
+    transition: all 0.18s;
+  }
+  .option-item.selected .option-letter {
+    background: var(--coral); color: #fff; border-color: var(--coral);
+  }
+  .option-text { font-size: 0.95rem; line-height: 1.5; }
+
+  /* Nav buttons */
+  .quiz-nav {
+    display: flex; justify-content: space-between; gap: 16px;
+    padding: 20px; background: var(--paper);
+    border: 3px solid var(--ink); border-radius: 20px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .quiz-nav button {
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem;
+    padding: 12px 28px; border-radius: 12px; border: 3px solid var(--ink);
+    cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 8px;
+  }
+  .quiz-nav button:disabled { opacity: 0.35; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+  .btn-prev { background: var(--cream); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+  .btn-prev:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .btn-next { background: var(--coral); color: #fff; box-shadow: 4px 4px 0 var(--ink); }
+  .btn-next:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .btn-submit { background: var(--teal); color: #fff; box-shadow: 4px 4px 0 var(--ink); }
+  .btn-submit:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+
+  /* ========== QUIZ RESULT ========== */
+  .result-page {
+    display: none; max-width: 860px; margin: 0 auto;
+    padding: 40px 24px 100px;
+  }
+  .result-page.show { display: block; }
+  .quiz-wrapper.hidden { display: none; }
+
+  .result-header {
+    text-align: center; margin-bottom: 40px;
+  }
+  .result-header h2 {
+    font-family: 'Caveat', cursive; font-size: 2.8rem; font-weight: 700; margin-bottom: 12px;
+  }
+
+  .character-result {
+    background: var(--paper); border: 4px solid var(--ink);
+    border-radius: 28px; padding: 40px 36px;
+    box-shadow: 10px 10px 0 var(--ink);
+    text-align: center; margin-bottom: 32px;
+    animation: cardIn 0.5s ease both;
+  }
+  .character-emoji { font-size: 5rem; margin-bottom: 16px; display: block; }
+  .character-name {
+    font-family: 'Caveat', cursive; font-size: 2.4rem; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .character-trait {
+    display: inline-block; background: var(--yellow); color: var(--ink);
+    font-weight: 800; font-size: 0.9rem;
+    padding: 6px 20px; border-radius: 20px; border: 2px solid var(--ink);
+    margin-bottom: 20px;
+  }
+  .character-desc {
+    font-size: 1.05rem; line-height: 1.75; color: var(--gray);
+    max-width: 560px; margin: 0 auto;
+  }
+
+  .scores-breakdown {
+    background: var(--paper); border: 3px solid var(--ink);
+    border-radius: 20px; padding: 28px 32px;
+    box-shadow: 6px 6px 0 var(--ink); margin-bottom: 28px;
+  }
+  .scores-breakdown h3 {
+    font-family: 'Caveat', cursive; font-size: 1.6rem; margin-bottom: 20px;
+  }
+  .score-row {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 16px;
+  }
+  .score-label {
+    width: 120px; font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .score-track {
+    flex: 1; height: 20px; background: var(--light-gray);
+    border-radius: 30px; border: 2px solid var(--ink); overflow: hidden;
+  }
+  .score-fill {
+    height: 100%; border-radius: 30px;
+    transition: width 1s ease 0.3s;
+  }
+  .score-num {
+    width: 36px; text-align: right; font-size: 0.85rem; font-weight: 800;
+    color: var(--gray);
+  }
+
+  .result-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+  /* ========== BLOG LIST PAGE ========== */
+  #page-blog {
+    background: var(--cream);
+    min-height: 100vh;
+  }
+  .blog-wrapper { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  .blog-hero {
+    text-align: center; margin-bottom: 48px;
+  }
+  .blog-hero h2 {
+    font-family: 'Caveat', cursive; font-size: 2.8rem; font-weight: 700; margin-bottom: 12px;
+  }
+  .blog-hero p { color: var(--gray); font-size: 1rem; }
+
+  .blog-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .blog-card {
+    background: var(--paper); border: 3px solid var(--ink);
+    border-radius: 20px; padding: 0; overflow: hidden;
+    box-shadow: 6px 6px 0 var(--ink);
+    transition: all 0.2s; cursor: pointer;
+  }
+  .blog-card:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 var(--ink); }
+
+  .blog-card-thumb {
+    height: 120px; display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; position: relative;
+  }
+  .blog-card-body { padding: 22px 24px 28px; }
+  .blog-card-tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 800;
+    padding: 4px 12px; border-radius: 20px; border: 2px solid var(--ink);
+    margin-bottom: 10px;
+  }
+  .blog-card h3 {
+    font-family: 'Noto Serif TC', serif; font-size: 1.1rem; font-weight: 700;
+    line-height: 1.5; margin-bottom: 10px;
+  }
+  .blog-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+  .blog-card-meta {
+    display: flex; gap: 12px; align-items: center; margin-top: 16px;
+    font-size: 0.8rem; color: var(--gray);
+  }
+
+  /* ========== BLOG ARTICLE PAGE ========== */
+  #page-article {
+    background: var(--cream); min-height: 100vh;
+  }
+  .article-wrapper { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  .article-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.9rem; font-weight: 700; color: var(--gray);
+    cursor: pointer; margin-bottom: 32px;
+    border: 2px solid var(--light-gray); border-radius: 20px;
+    padding: 8px 16px; background: var(--paper);
+    transition: all 0.2s;
+  }
+  .article-back:hover { border-color: var(--ink); color: var(--ink); transform: translateX(-4px); }
+
+  .article-tag {
+    display: inline-block; font-size: 0.8rem; font-weight: 800;
+    padding: 5px 14px; border-radius: 20px; border: 2px solid var(--ink);
+    margin-bottom: 16px;
+  }
+  .article-title {
+    font-family: 'Noto Serif TC', serif; font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 900; line-height: 1.4; margin-bottom: 24px;
+  }
+  .article-meta { display: flex; gap: 16px; font-size: 0.85rem; color: var(--gray); margin-bottom: 32px; }
+
+  .article-body {
+    background: var(--paper); border: 3px solid var(--ink);
+    border-radius: 20px; padding: 36px 40px;
+    box-shadow: 6px 6px 0 var(--ink); line-height: 1.85;
+  }
+  .article-body p { margin-bottom: 20px; font-size: 1rem; }
+  .article-body h3 {
+    font-family: 'Caveat', cursive; font-size: 1.6rem; font-weight: 700;
+    margin: 28px 0 12px; color: var(--coral);
+  }
+  .article-body ul { padding-left: 24px; margin-bottom: 20px; }
+  .article-body li { margin-bottom: 8px; font-size: 0.97rem; }
+  .article-body blockquote {
+    border-left: 5px solid var(--yellow); padding: 12px 20px;
+    background: rgba(255,217,74,0.15); border-radius: 0 12px 12px 0;
+    margin: 20px 0; font-style: italic; color: var(--gray);
+  }
+  .article-body .highlight-box {
+    background: rgba(38,166,154,0.1); border: 2px solid var(--teal);
+    border-radius: 12px; padding: 16px 20px; margin: 20px 0;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--ink); color: var(--cream);
+    padding: 48px 24px; text-align: center;
+    border-top: 5px solid var(--yellow);
+  }
+  .footer-logo {
+    font-family: 'Caveat', cursive; font-size: 2rem; font-weight: 700;
+    color: var(--yellow); margin-bottom: 16px;
+  }
+  footer p { font-size: 0.85rem; color: rgba(255,249,238,0.6); line-height: 1.8; }
+  .footer-links { display: flex; gap: 24px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+  .footer-links a { color: var(--cream); font-size: 0.9rem; text-decoration: none; opacity: 0.7; cursor: pointer; }
+  .footer-links a:hover { opacity: 1; text-decoration: underline; }
+
+  /* ========== UTILITIES ========== */
+  @media (max-width: 768px) {
+    header { padding: 0 16px; }
+    nav { display: none; }
+    .hamburger { display: flex; }
+    .hero h1 { font-size: 3rem; }
+    .question-card { padding: 28px 22px; }
+    .article-body { padding: 24px 22px; }
+    .quiz-nav { flex-direction: column; }
+    .quiz-nav button { justify-content: center; }
+  }
+
+  /* Notebook lines effect on certain cards */
+  .notebook-lines {
+    background-image: repeating-linear-gradient(
+      transparent, transparent 31px, rgba(38,166,154,0.15) 31px, rgba(38,166,154,0.15) 32px
+    );
+  }
+
+  /* Fun washi tape */
+  .washi-top {
+    position: absolute; top: -3px; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 22px; border-radius: 4px;
+    border: 2px solid var(--ink);
+  }
+
+  /* Confetti animation for result */
+  @keyframes confettiFall {
+    0% { transform: translateY(-40px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+  .confetti-piece {
+    position: fixed; width: 10px; height: 10px;
+    border-radius: 2px; pointer-events: none; z-index: 9999;
+    animation: confettiFall linear forwards;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" onclick="showPage('home')">
+    <span class="logo-icon">🧠</span>
+    心腦筆記
+  </a>
+  <nav>
+    <a onclick="showPage('home')" data-page="home" class="active">🏠 首頁</a>
+    <a onclick="showPage('quiz')" data-page="quiz">🎯 心理測驗</a>
+    <a onclick="showPage('blog')" data-page="blog">📚 小知識</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMobileNav()" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a onclick="showPage('home');toggleMobileNav()">🏠 首頁</a>
+  <a onclick="showPage('quiz');toggleMobileNav()">🎯 心理測驗</a>
+  <a onclick="showPage('blog');toggleMobileNav()">📚 小知識</a>
+</div>
+
+<!-- ======================== HOME PAGE ======================== -->
+<section class="page active" id="page-home">
+  <div class="hero">
+    <!-- Floating stickers -->
+    <div class="stickers" id="stickersContainer"></div>
+
+    <div class="hero-badge">✨ 心理學 × 學習法 科普基地</div>
+    <h1>
+      認識你的<br>
+      <span class="highlight">大腦</span>，<br>
+      解鎖學習力！
+    </h1>
+    <p>用有趣的心理測驗與科普文章，探索人類心智的奧秘。你是哪種學習型人格？現在就來揭曉！</p>
+    <div class="hero-buttons">
+      <a class="btn btn-primary" onclick="showPage('quiz')">🎯 開始測驗</a>
+      <a class="btn btn-secondary" onclick="showPage('blog')">📖 瀏覽文章</a>
+    </div>
+
+    <div class="scroll-worm">
+      <span>繼續往下看</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </div>
+
+  <!-- Feature section -->
+  <div class="home-features">
+    <h2 class="section-title">🗂️ 探索這裡</h2>
+    <div class="features-grid">
+      <div class="feature-card card-coral" onclick="showPage('quiz')">
+        <div class="tape washi-top" style="background:rgba(255,112,67,0.4);"></div>
+        <span class="card-tag">HOT 🔥</span>
+        <span class="card-icon">🎭</span>
+        <h3>學習型人格測驗</h3>
+        <p>10 道情境題，找出你在《學習冒險隊》中對應的角色人格！你是穩重的分析師、勇敢的探索者，還是溫暖的協作者？</p>
+      </div>
+      <div class="feature-card card-teal" onclick="showPage('blog')">
+        <div class="tape washi-top" style="background:rgba(38,166,154,0.4);"></div>
+        <span class="card-tag">NEW 🆕</span>
+        <span class="card-icon">🔬</span>
+        <h3>心理學小知識</h3>
+        <p>用白話文解釋認知心理學、記憶科學與學習方法，讓科學變得好懂又好用！</p>
+      </div>
+      <div class="feature-card" onclick="showPage('quiz')">
+        <div class="tape washi-top" style="background:rgba(124,77,255,0.35);"></div>
+        <span class="card-icon">📊</span>
+        <h3>個人化結果報告</h3>
+        <p>測驗結束後獲得專屬人格分析，了解你的學習優勢與盲點，以及對應的角色故事！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== QUIZ PAGE ======================== -->
+<section class="page" id="page-quiz">
+
+  <!-- Quiz questions -->
+  <div class="quiz-wrapper" id="quizWrapper">
+    <div class="quiz-header-bar">
+      <h2>🎭 學習型人格測驗</h2>
+      <p>選出最符合你直覺反應的選項，不需要想太多！</p>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill" style="width:10%"></div>
+    </div>
+    <div class="progress-text" id="progressText">第 1 題 / 共 10 題</div>
+
+    <div class="question-card" id="questionCard">
+      <span class="question-tag" id="questionTag">情境一</span>
+      <div class="question-scenario" id="questionScenario"></div>
+      <div class="question-text" id="questionText"></div>
+      <div class="options-list" id="optionsList"></div>
+    </div>
+
+    <div class="quiz-nav">
+      <button class="btn-prev" id="btnPrev" onclick="changeQuestion(-1)" disabled>← 前一個</button>
+      <button class="btn-next" id="btnNext" onclick="changeQuestion(1)">下一個 →</button>
+      <button class="btn-submit" id="btnSubmit" onclick="submitQuiz()" style="display:none">🎉 查看結果</button>
+    </div>
+  </div>
+
+  <!-- Quiz result -->
+  <div class="result-page" id="resultPage">
+    <div class="result-header">
+      <h2>🎊 你的測驗結果</h2>
+      <p>根據你的答題傾向，最符合你的角色是⋯⋯</p>
+    </div>
+
+    <div class="character-result" id="characterResult">
+      <span class="character-emoji" id="resultEmoji">🦉</span>
+      <div class="character-name" id="resultName">—</div>
+      <div class="character-trait" id="resultTrait">—</div>
+      <p class="character-desc" id="resultDesc">—</p>
+    </div>
+
+    <div class="scores-breakdown">
+      <h3>📊 各角色傾向分析</h3>
+      <div id="scoresDetail"></div>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn btn-coral" style="background:var(--coral);color:#fff;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:12px 28px;border-radius:12px;font-weight:800;font-size:0.95rem;cursor:pointer;" onclick="restartQuiz()">🔄 重新測驗</button>
+      <button class="btn btn-secondary" style="background:var(--paper);color:var(--ink);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:12px 28px;border-radius:12px;font-weight:800;font-size:0.95rem;cursor:pointer;" onclick="showPage('blog')">📚 去看文章</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- ======================== BLOG LIST PAGE ======================== -->
+<section class="page" id="page-blog">
+  <div class="blog-wrapper">
+    <div class="blog-hero">
+      <h2>📚 小知識 × 心理學科普</h2>
+      <p>每篇文章用白話文帶你認識一個心理學概念，輕鬆又有趣！</p>
+    </div>
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
+</section>
+
+<!-- ======================== ARTICLE PAGE ======================== -->
+<section class="page" id="page-article">
+  <div class="article-wrapper">
+    <div class="article-back" onclick="showPage('blog')">← 返回文章列表</div>
+    <div class="article-tag" id="articleTag"></div>
+    <h1 class="article-title" id="articleTitle"></h1>
+    <div class="article-meta" id="articleMeta"></div>
+    <div class="article-body" id="articleBody"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🧠 心腦筆記</div>
+  <div class="footer-links">
+    <a onclick="showPage('home')">首頁</a>
+    <a onclick="showPage('quiz')">心理測驗</a>
+    <a onclick="showPage('blog')">小知識</a>
+  </div>
+  <p>心腦筆記 — 讓心理學變得好懂又好玩<br>
+  所有內容僅供科普參考，不構成專業心理診斷。</p>
+</footer>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+
+// Characters
+const CHARACTERS = [
+  {
+    id: 'A',
+    name: '阿瑟 — 分析師',
+    emoji: '🦉',
+    color: '#7c4dff',
+    trait: '深度思考型',
+    desc: '你是《學習冒險隊》中沉穩的智慧擔當阿瑟。你習慣蒐集資訊、仔細分析後才行動，思維嚴謹、邏輯清晰。你最大的優勢是深度理解，偶爾需要注意不要過度分析而陷入「分析癱瘓」。'
+  },
+  {
+    id: 'B',
+    name: '蘿拉 — 探索者',
+    emoji: '🦊',
+    color: '#ff7043',
+    trait: '勇於嘗試型',
+    desc: '你是勇敢的探索者蘿拉！你喜歡在行動中學習，不怕犯錯、勇於嘗試新事物。你的學習動力來自好奇心，能快速適應變化。保持這份衝勁，同時記得偶爾停下來整合所學！'
+  },
+  {
+    id: 'C',
+    name: '米米 — 協作者',
+    emoji: '🐬',
+    color: '#26a69a',
+    trait: '社交學習型',
+    desc: '你是溫暖有活力的協作者米米！你在團隊互動中學習效率最高，善於傾聽、整合意見，也能激勵他人。你的同理心是最強的學習工具，在群體中你會發光！'
+  },
+  {
+    id: 'D',
+    name: '奇奇 — 創意師',
+    emoji: '🦋',
+    color: '#f06292',
+    trait: '跨域連結型',
+    desc: '你是充滿創意的跨域思考者奇奇！你擅長把不同領域的知識連結在一起，產生獨特見解。你的學習方式非線性，卻能創造出令人驚喜的成果。學習對你而言是一場創作！'
+  },
+  {
+    id: 'E',
+    name: '艾里 — 堅守者',
+    emoji: '🐢',
+    color: '#66bb6a',
+    trait: '深耕練習型',
+    desc: '你是穩健的堅守者艾里！你相信「熟能生巧」，透過反覆練習與刻意訓練達到精熟。你不追求速度，但你的學習成果往往最紮實持久。「慢慢來，比較快」是你的座右銘！'
+  }
+];
+
+// Quiz questions
+const QUESTIONS = [
+  {
+    id: 1,
+    scenario: '📖 情境：你剛拿到一本全新的教科書',
+    text: '你拿到一本從未接觸過的新科目教科書，你第一個動作是？',
+    tag: '學習起點',
+    options: [
+      { text: '先翻到目錄，把整本架構看完再開始。', score: { A: 3 } },
+      { text: '直接翻到最有趣的章節，跳著讀。', score: { B: 3 } },
+      { text: '拍照傳給同學，問他們哪部分最重要。', score: { C: 3 } },
+      { text: '隨手翻翻，看圖表和標題，找感覺。', score: { D: 3 } },
+      { text: '從第一頁開始，一字不漏地讀完第一章。', score: { E: 3 } }
+    ]
+  },
+  {
+    id: 2,
+    scenario: '🤔 情境：你遇到一道不會的難題',
+    text: '考試或作業中遇到一道完全不懂的題目，你的反應是？',
+    tag: '面對挑戰',
+    options: [
+      { text: '先標記起來，把其他題做完後回來研究。', score: { A: 2, E: 1 } },
+      { text: '立刻嘗試各種解法，就算寫錯也沒關係。', score: { B: 3 } },
+      { text: '偷偷問旁邊的同學，或想等等討論。', score: { C: 3 } },
+      { text: '用類比或故事想像它的意思，換個角度思考。', score: { D: 3 } },
+      { text: '回憶練習過的類題，一步一步套用公式。', score: { E: 3 } }
+    ]
+  },
+  {
+    id: 3,
+    scenario: '📝 情境：準備重要考試',
+    text: '距離大考還有兩週，你會怎麼制定複習計畫？',
+    tag: '備考策略',
+    options: [
+      { text: '建立詳細時間表，每天要完成哪些章節全寫清楚。', score: { A: 3 } },
+      { text: '大概掃一下，遇到不懂的馬上搜尋或嘗試。', score: { B: 3 } },
+      { text: '揪朋友一起讀書，互相出題考彼此。', score: { C: 3 } },
+      { text: '做一張心智圖，把所有知識點連起來。', score: { D: 3 } },
+      { text: '把歷年考古題一題一題刷完，刻意練習弱點。', score: { E: 3 } }
+    ]
+  },
+  {
+    id: 4,
+    scenario: '🎮 情境：學習新技能',
+    text: '你要學一個全新的技能（如彈吉他、寫程式），你會怎麼開始？',
+    tag: '技能習得',
+    options: [
+      { text: '先找理論資料看完，搞清楚底層原理再動手。', score: { A: 3 } },
+      { text: '直接上手摸索，邊做邊學，犯錯就改。', score: { B: 3 } },
+      { text: '找一個已經會的朋友帶著我入門。', score: { C: 3 } },
+      { text: '搜尋有沒有好玩或非典型的學習資源。', score: { D: 3 } },
+      { text: '找到一套固定課程，每天練習固定時間。', score: { E: 3 } }
+    ]
+  },
+  {
+    id: 5,
+    scenario: '💬 情境：組員報告意見不同',
+    text: '小組報告時，你提出的方向和其他人想法不同，你怎麼辦？',
+    tag: '團隊合作',
+    options: [
+      { text: '提出數據和邏輯依據，理性說明自己的想法。', score: { A: 3 } },
+      { text: '先說「不然就試試看我的方法，不行再換」。', score: { B: 3 } },
+      { text: '想辦法找到融合大家想法的中間方案。', score: { C: 3 } },
+      { text: '把兩個方案腦力激盪，看能不能碰出新火花。', score: { D: 3 } },
+      { text: '按照大家之前說好的分工方式執行就好。', score: { E: 3 } }
+    ]
+  },
+  {
+    id: 6,
+    scenario: '😵 情境：讀到腦霧',
+    text: '你已經讀書兩小時，開始感到疲倦，注意力渙散，你會？',
+    tag: '自我調節',
+    options: [
+      { text: '查一下專注力的研究，看怎樣休息最科學。', score: { A: 3 } },
+      { text: '乾脆換去嘗試另一個科目或新方法轉換心情。', score: { B: 3 } },
+      { text: '傳訊息給朋友抱怨，或約人聊幾分鐘再繼續。', score: { C: 3 } },
+      { text: '用音樂或塗鴉幫大腦充電，激發另一種感知。', score: { D: 3 } },
+      { text: '按計畫設15分鐘計時器休息，時間到繼續。', score: { E: 3 } }
+    ]
+  },
+  {
+    id: 7,
+    scenario: '🔍 情境：主題報告研究',
+    text: '老師出了一個開放性主題報告，你最先做什麼？',
+    tag: '自主研究',
+    options: [
+      { text: '拆解問題，列出「需要知道什麼」的清單。', score: { A: 3 } },
+      { text: '直接Google搜尋，看跳出什麼有趣的東西。', score: { B: 3 } },
+      { text: '問同學選什麼題目，一起討論方向。', score: { C: 3 } },
+      { text: '往自己興趣的方向走，找一個別人沒想到的角度。', score: { D: 3 } },
+      { text: '先收集夠多資料，再開始動筆。', score: { E: 3 } }
+    ]
+  },
+  {
+    id: 8,
+    scenario: '🌙 情境：睡前回顧',
+    text: '你在睡前想要「鞏固今天所學」，你的做法是？',
+    tag: '記憶鞏固',
+    options: [
+      { text: '在筆記本上整理今天學到的重點知識。', score: { A: 3 } },
+      { text: '思考明天可以怎麼應用今天學到的東西。', score: { B: 2, D: 1 } },
+      { text: '把今天印象最深的事情說給家人或朋友聽。', score: { C: 3 } },
+      { text: '用顏色或圖像在腦海中重現今天的內容。', score: { D: 3 } },
+      { text: '用間隔重複APP複習今天新增的記憶卡片。', score: { E: 3 } }
+    ]
+  },
+  {
+    id: 9,
+    scenario: '🎯 情境：你收到一個批評',
+    text: '老師批評你的報告「太過表面、缺乏深度」，你的第一反應是？',
+    tag: '成長回應',
+    options: [
+      { text: '仔細分析哪些地方不夠深，找出根本問題。', score: { A: 3 } },
+      { text: '馬上重寫，邊做邊想怎麼改進。', score: { B: 3 } },
+      { text: '找同學看看他們覺得哪裡可以加強。', score: { C: 3 } },
+      { text: '換一個更創新的切入點重新詮釋主題。', score: { D: 3 } },
+      { text: '對照老師給的評分標準，按項目一一改進。', score: { E: 3 } }
+    ]
+  },
+  {
+    id: 10,
+    scenario: '🚀 情境：學習成就感',
+    text: '什麼樣的學習經驗會讓你覺得「今天超有收穫」？',
+    tag: '學習動力',
+    options: [
+      { text: '終於搞清楚一個困惑很久的原理，豁然開朗。', score: { A: 3 } },
+      { text: '親手完成一個新東西，哪怕不完美。', score: { B: 3 } },
+      { text: '和他人一起解決了難題，過程很有趣。', score: { C: 3 } },
+      { text: '發現兩個不同領域的知識竟然有共通之處。', score: { D: 3 } },
+      { text: '完成了今天的學習計畫，達到預設目標。', score: { E: 3 } }
+    ]
+  }
+];
+
+// Blog articles
+const ARTICLES = [
+  {
+    id: 1,
+    title: '間隔重複：對抗遺忘曲線的記憶武器',
+    tag: '記憶科學',
+    tagColor: '#7c4dff',
+    tagBg: 'rgba(124,77,255,0.12)',
+    emoji: '📈',
+    thumbBg: 'linear-gradient(135deg,#ede7f6,#e8eaf6)',
+    date: '2024-03-15', readTime: '5 分鐘',
+    summary: '德國心理學家艾賓浩斯在19世紀發現了記憶遺忘的規律，而「間隔重複」正是利用這個規律的最強學習法。',
+    content: `
+      <p>你有沒有過這樣的經驗？昨天背得滾瓜爛熟的單字，隔一個禮拜之後竟然全忘光了？這不是你的記憶力特別差，而是所有人類大腦的共同特性——我們天生就會遺忘。</p>
+
+      <h3>🧪 艾賓浩斯的偉大發現</h3>
+      <p>19世紀，德國心理學家赫爾曼·艾賓浩斯（Hermann Ebbinghaus）用自己的大腦做了大量記憶實驗，最終描繪出著名的「遺忘曲線」。</p>
+      <blockquote>學習後的第一天，我們會忘記大約 67% 的內容。一個月後，只剩下不到 20% 的記憶留存。</blockquote>
+
+      <p>聽起來很沮喪，但艾賓浩斯同時也發現了好消息——<strong>在恰當的時間點複習，可以有效「重置」遺忘曲線。</strong></p>
+
+      <h3>📅 間隔重複的原理</h3>
+      <p>間隔重複（Spaced Repetition）就是在你「快要忘記」但還沒完全忘記的時間點，刻意安排複習。這樣做有兩大好處：</p>
+      <ul>
+        <li>每次「成功回憶」都會加深神經連結，讓記憶更穩固。</li>
+        <li>複習的間隔可以越來越長，長期效率大幅提升。</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>💡 實用建議：</strong>試試 Anki 這款軟體，它內建了間隔重複演算法，會根據你每次答題的表現自動安排下次複習時間，完全不需要自己計算！
+      </div>
+
+      <h3>🔑 關鍵原則：主動回憶 > 被動重讀</h3>
+      <p>很多人複習時習慣「再讀一遍課本」，但研究顯示，主動回憶（先閉上書本，嘗試自己說出答案）的學習效果，比被動重讀高出 50% 以上。</p>
+      <p>下次複習，先把書蓋起來，逼自己回想，再對答案。這個過程雖然有點痛苦，但那種「痛苦」正是記憶正在被鞏固的訊號！</p>
+    `
+  },
+  {
+    id: 2,
+    title: '成長型思維 vs 固定型思維：影響你一生的心理模式',
+    tag: '心態科學',
+    tagColor: '#ff7043',
+    tagBg: 'rgba(255,112,67,0.12)',
+    emoji: '🌱',
+    thumbBg: 'linear-gradient(135deg,#fbe9e7,#fff8e1)',
+    date: '2024-03-08', readTime: '6 分鐘',
+    summary: '史丹佛大學心理學教授卡蘿·德威克的研究發現，你對「自己能力」的信念，決定了你如何面對挑戰與失敗。',
+    content: `
+      <p>想像兩個學生都在數學考試中得了 60 分。學生甲心想：「我就是沒有數學天份，學不好的。」學生乙心想：「這次沒考好，代表我還有哪些地方需要加強。」</p>
+      <p>這兩種截然不同的反應，正是「固定型思維」與「成長型思維」的差異——而它對學習成就的影響，遠超過你的想像。</p>
+
+      <h3>🔬 德威克教授的研究</h3>
+      <p>史丹佛大學心理學教授卡蘿·德威克（Carol Dweck）花了數十年研究數千名學生，發現人們對自身能力的信念可以分為兩大類型：</p>
+      <ul>
+        <li><strong>固定型思維（Fixed Mindset）：</strong>認為智力和才能是天生固定的，無法改變。</li>
+        <li><strong>成長型思維（Growth Mindset）：</strong>相信能力可以透過努力和正確方法持續提升。</li>
+      </ul>
+
+      <blockquote>「在成長型思維中，失敗不是人格的標籤，而是需要面對和解決的問題。」—— 卡蘿·德威克</blockquote>
+
+      <h3>🧠 大腦的可塑性</h3>
+      <p>成長型思維不只是「正向思考的口號」，它有神經科學的根據。研究表明，大腦具有「神經可塑性」，即使是成年後，適當的學習與練習依然能夠改變大腦結構，形成新的神經迴路。</p>
+
+      <div class="highlight-box">
+        <strong>🛠️ 實用練習：</strong>下次遇到挫折，試著把「我不會」改說成「我還不會」——這個小小的「還」字，代表了一種開放性，心理上的差異卻大得驚人。
+      </div>
+
+      <h3>🎯 如何培養成長型思維？</h3>
+      <ul>
+        <li>讚美過程，而非結果（「你這次很努力分析問題」比「你好聰明」更有效）</li>
+        <li>把挑戰視為機會，而非威脅</li>
+        <li>從他人的成功中尋找啟發，而非嫉妒</li>
+        <li>將「失敗」重新定義為「學習資料」</li>
+      </ul>
+    `
+  },
+  {
+    id: 3,
+    title: '工作記憶：你大腦的便利貼，有容量限制！',
+    tag: '認知科學',
+    tagColor: '#26a69a',
+    tagBg: 'rgba(38,166,154,0.12)',
+    emoji: '🗒️',
+    thumbBg: 'linear-gradient(135deg,#e0f2f1,#e8f5e9)',
+    date: '2024-02-28', readTime: '4 分鐘',
+    summary: '工作記憶就像大腦的「桌面」，一次只能處理 4±1 個資訊片段。了解它，讓你的學習效率翻倍。',
+    content: `
+      <p>你有沒有發現，一邊聽老師講課、一邊記筆記的時候，特別容易漏掉東西？或是記了一串電話號碼，才剛轉頭就忘了？這不是你不專心，而是你的「工作記憶」已經超載了。</p>
+
+      <h3>🧩 什麼是工作記憶？</h3>
+      <p>工作記憶（Working Memory）是大腦中負責「暫時儲存並處理當前資訊」的系統。你可以把它想像成電腦的 RAM——容量有限，但速度快。</p>
+      <p>心理學家喬治·米勒（George Miller）在 1956 年提出著名的「7±2」規則，後來研究更修正為，我們一次大約只能同時處理 <strong>4±1 個「組塊」（chunk）</strong>的資訊。</p>
+
+      <blockquote>工作記憶不是學習的目的地，而是通往長期記憶的門戶。</blockquote>
+
+      <h3>📦 「組塊化」是提升效率的關鍵</h3>
+      <p>所謂「組塊」，就是把多個資訊整合成一個有意義的單位。例如，電話號碼 0912345678 如果拆成 09-1234-5678，就從 10 個獨立數字（超過容量）變成 3 個組塊（輕鬆記憶）。</p>
+
+      <div class="highlight-box">
+        <strong>🚦 避免工作記憶超載的方法：</strong>
+        <br>・每次只學一個概念，不要貪多
+        <br>・先預習，建立基礎框架，讓新知識有地方「掛」
+        <br>・做筆記，把部分資訊「外包」給紙張
+        <br>・避免多工，一次專心做一件事
+      </div>
+
+      <h3>🎓 對學習的實際應用</h3>
+      <p>這解釋了為什麼「有架構的學習」比「零散吸收」有效得多。當你先了解一門學科的整體框架，再深入各個細節，大腦可以更輕鬆地把新知識分類到已有的「槽位」中，大幅降低工作記憶的負擔。</p>
+    `
+  },
+  {
+    id: 4,
+    title: '費曼學習法：用「教別人」來測試真正的理解',
+    tag: '學習方法',
+    tagColor: '#f06292',
+    tagBg: 'rgba(240,98,146,0.12)',
+    emoji: '🧑‍🏫',
+    thumbBg: 'linear-gradient(135deg,#fce4ec,#f3e5f5)',
+    date: '2024-02-20', readTime: '5 分鐘',
+    summary: '諾貝爾物理獎得主費曼有一句名言：「如果你不能用簡單語言解釋它，代表你還沒真正理解它。」',
+    content: `
+      <p>諾貝爾物理獎得主理查·費曼（Richard Feynman）以超強的理解力和解釋能力聞名。他說：「如果你不能用簡單語言向一個小孩子解釋某件事，代表你其實還沒真正理解它。」</p>
+      <p>費曼學習法（The Feynman Technique）就是基於這個洞見，設計出的高效學習方法。</p>
+
+      <h3>📋 費曼學習法四步驟</h3>
+      <ul>
+        <li><strong>步驟一：選定主題</strong>——選一個你想學懂的概念，寫在紙頁頂端。</li>
+        <li><strong>步驟二：用白話解釋</strong>——假裝你要向一個完全不懂的人（或小學生）解釋這個概念，把解釋寫下來，不能使用術語。</li>
+        <li><strong>步驟三：找出卡住的地方</strong>——你解釋不清楚的地方，正是你的理解盲點！回去查資料、重新學習。</li>
+        <li><strong>步驟四：簡化與類比</strong>——重新整理解釋，加入類比和例子，讓它更易懂。</li>
+      </ul>
+
+      <blockquote>真正的學習不是「輸入」，而是能夠「輸出」。</blockquote>
+
+      <div class="highlight-box">
+        <strong>🎤 實際練習方法：</strong>
+        <br>・讀完一個章節後，不看書，把重點說給空氣（或朋友）聽
+        <br>・寫「給十歲小孩看」的版本
+        <br>・嘗試把概念畫成圖或比喻成日常生活中的事物
+      </div>
+
+      <h3>🌉 為什麼這個方法有效？</h3>
+      <p>因為「能用自己的話說出來」需要深層的語意理解，而非死記硬背的表面記憶。這個過程會強迫你的大腦建立牢固的概念連結，而不只是「看過」這個知識。</p>
+      <p>很多學生在考前才發現：「原來我以為我懂，但根本說不出來。」費曼學習法就是讓你提早發現這個問題的照妖鏡！</p>
+    `
+  },
+  {
+    id: 5,
+    title: '番茄鐘技法：用 25 分鐘重新掌控注意力',
+    tag: '時間管理',
+    tagColor: '#ffa726',
+    tagBg: 'rgba(255,167,38,0.12)',
+    emoji: '🍅',
+    thumbBg: 'linear-gradient(135deg,#fff3e0,#fbe9e7)',
+    date: '2024-02-12', readTime: '4 分鐘',
+    summary: '1980年代義大利學生弗朗切斯科·西里洛用一個番茄形計時器，發明了改變數百萬人學習效率的時間管理法。',
+    content: `
+      <p>1980年代，義大利大學生弗朗切斯科·西里洛（Francesco Cirillo）苦於無法集中注意力讀書，拿起廚房裡一個番茄形狀的計時器，設定了 25 分鐘，和自己約定：「就這 25 分鐘，只做一件事。」</p>
+      <p>就這樣，番茄鐘技法（Pomodoro Technique）誕生了。</p>
+
+      <h3>🍅 番茄鐘的基本步驟</h3>
+      <ul>
+        <li>選定一個任務，把其他事情全部放到一邊。</li>
+        <li>設定 25 分鐘計時，全心投入，期間不查手機、不回訊息。</li>
+        <li>時間到，休息 5 分鐘（短暫休息：伸展、喝水、閉目）。</li>
+        <li>每完成 4 個番茄鐘，休息 15-30 分鐘。</li>
+      </ul>
+
+      <blockquote>「計時器的嘀嗒聲讓我意識到，時間是有質感的，不是無限的。」——弗朗切斯科·西里洛</blockquote>
+
+      <h3>🔬 為什麼 25 分鐘是魔法數字？</h3>
+      <p>研究顯示，人的高度專注力平均可維持 20-30 分鐘。25 分鐘恰好落在這個範圍內，能讓你進入深度工作狀態，又不至於精力耗盡。</p>
+
+      <div class="highlight-box">
+        <strong>⚡ 進階版技巧：</strong>
+        <br>・番茄鐘開始前，先花 2 分鐘清晰定義「這 25 分鐘要完成什麼」
+        <br>・把分心想法記在旁邊一張紙，讓大腦放心（「有記到，之後再看」）
+        <br>・不適合拆分的任務（如「準備報告」）要先分解成更小的步驟
+      </div>
+
+      <h3>📱 現代版應用</h3>
+      <p>現在手機上有許多番茄鐘 App（如 Forest、Focus@Will），Forest 還有額外的遊戲化機制：專注時會種樹，分心碰手機樹就會死掉——用視覺化的方式強化自律的動機！</p>
+    `
+  },
+  {
+    id: 6,
+    title: '心流狀態：為什麼打電動可以打 6 小時不累？',
+    tag: '正向心理學',
+    tagColor: '#66bb6a',
+    tagBg: 'rgba(102,187,106,0.12)',
+    emoji: '🌊',
+    thumbBg: 'linear-gradient(135deg,#e8f5e9,#e3f2fd)',
+    date: '2024-02-05', readTime: '5 分鐘',
+    summary: '心理學家米哈里·契克森米哈伊研究了數十年「心流」——那種完全投入、忘記時間的神奇體驗，以及如何把它帶進學習中。',
+    content: `
+      <p>你有過玩遊戲或做一件超喜歡的事，抬起頭才發現已經過了四個小時，完全不覺得累的經驗嗎？這種狀態，心理學家稱之為「心流」（Flow）。</p>
+
+      <h3>🧠 什麼是心流？</h3>
+      <p>匈牙利裔美國心理學家米哈里·契克森米哈伊（Mihaly Csikszentmihalyi）花了數十年研究這種體驗，發現心流是一種「完全沉浸在活動中、高度專注且充滿能量」的最優體驗狀態。</p>
+      <p>在心流狀態中，自我意識消失，時間感扭曲，人會感到高度的愉悅和成就感。</p>
+
+      <blockquote>「心流不是奢侈品，是人類最自然的高效狀態。」——米哈里·契克森米哈伊</blockquote>
+
+      <h3>⚖️ 心流的關鍵條件</h3>
+      <p>心流發生在「挑戰難度」和「個人能力」達到恰當平衡的時候：</p>
+      <ul>
+        <li>任務太容易 → 無聊</li>
+        <li>任務太難 → 焦慮</li>
+        <li>難度略高於能力，且有清晰目標 → 心流！</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>🎯 如何在學習中創造心流？</strong>
+        <br>・設定清晰具體的小目標（不是「讀完一章」，而是「搞懂這個概念」）
+        <br>・消除外部干擾（手機靜音、找安靜環境）
+        <br>・調整任務難度，讓它「剛剛好有點難」
+        <br>・獲得即時回饋（練習題、自我測驗）
+      </div>
+
+      <h3>🎮 向遊戲設計學習</h3>
+      <p>電動之所以讓人進入心流，是因為遊戲設計師深諳這個原理：即時回饋（打到怪物有音效和數字跳出）、漸進式難度（第一關簡單，越後面越難）、清晰目標（知道這關要做什麼）。</p>
+      <p>把這些元素帶進學習：做題目要立即對答案、難度逐步提升、清楚知道這次學習的目標——學習也能讓你欲罷不能！</p>
+    `
+  }
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let currentQuestion = 0;
+let userAnswers = new Array(QUESTIONS.length).fill(null);
+
+// ============================================================
+// PAGE NAVIGATION
+// ============================================================
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+
+  const target = document.getElementById('page-' + pageId);
+  if (target) target.classList.add('active');
+
+  const navLink = document.querySelector(`nav a[data-page="${pageId}"]`);
+  if (navLink) navLink.classList.add('active');
+
+  // If going to quiz, reset view to questions (not result)
+  if (pageId === 'quiz') {
+    document.getElementById('quizWrapper').classList.remove('hidden');
+    document.getElementById('resultPage').classList.remove('show');
+    renderQuestion();
+  }
+
+  window.scrollTo(0, 0);
+}
+
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// ============================================================
+// QUIZ LOGIC
+// ============================================================
+function renderQuestion() {
+  const q = QUESTIONS[currentQuestion];
+  const total = QUESTIONS.length;
+  const pct = Math.round(((currentQuestion + 1) / total) * 100);
+
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `第 ${currentQuestion + 1} 題 / 共 ${total} 題`;
+  document.getElementById('questionTag').textContent = q.tag;
+  document.getElementById('questionScenario').textContent = q.scenario;
+  document.getElementById('questionText').textContent = q.text;
+
+  // Options
+  const letters = ['A', 'B', 'C', 'D', 'E'];
+  const list = document.getElementById('optionsList');
+  list.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const div = document.createElement('div');
+    div.className = 'option-item' + (userAnswers[currentQuestion] === i ? ' selected' : '');
+    div.innerHTML = `
+      <span class="option-letter">${letters[i]}</span>
+      <span class="option-text">${opt.text}</span>
+    `;
+    div.onclick = () => selectOption(i);
+    list.appendChild(div);
+  });
+
+  // Buttons
+  document.getElementById('btnPrev').disabled = currentQuestion === 0;
+  const isLast = currentQuestion === QUESTIONS.length - 1;
+  document.getElementById('btnNext').style.display = isLast ? 'none' : 'flex';
+  document.getElementById('btnSubmit').style.display = isLast ? 'flex' : 'none';
+
+  // Animate card
+  const card = document.getElementById('questionCard');
+  card.style.animation = 'none';
+  requestAnimationFrame(() => { card.style.animation = 'cardIn 0.4s ease both'; });
+}
+
+function selectOption(idx) {
+  userAnswers[currentQuestion] = idx;
+  document.querySelectorAll('.option-item').forEach((el, i) => {
+    el.classList.toggle('selected', i === idx);
+  });
+}
+
+function changeQuestion(dir) {
+  const next = currentQuestion + dir;
+  if (next >= 0 && next < QUESTIONS.length) {
+    currentQuestion = next;
+    renderQuestion();
+  }
+}
+
+function submitQuiz() {
+  // Calculate scores
+  const scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+  userAnswers.forEach((ans, qi) => {
+    if (ans === null) return;
+    const optionScore = QUESTIONS[qi].options[ans].score;
+    Object.entries(optionScore).forEach(([k, v]) => { scores[k] += v; });
+  });
+
+  // Find winner
+  const winner = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+  const char = CHARACTERS.find(c => c.id === winner);
+
+  // Show result
+  document.getElementById('quizWrapper').classList.add('hidden');
+  document.getElementById('resultPage').classList.add('show');
+
+  document.getElementById('resultEmoji').textContent = char.emoji;
+  document.getElementById('resultName').textContent = char.name;
+  document.getElementById('resultTrait').textContent = char.trait;
+  document.getElementById('resultDesc').textContent = char.desc;
+  document.getElementById('characterResult').style.borderColor = char.color;
+  document.getElementById('characterResult').style.boxShadow = `10px 10px 0 ${char.color}`;
+
+  // Scores detail
+  const total = Object.values(scores).reduce((a, b) => a + b, 0) || 1;
+  const det = document.getElementById('scoresDetail');
+  det.innerHTML = '';
+  CHARACTERS.forEach(c => {
+    const pct = Math.round((scores[c.id] / total) * 100);
+    det.innerHTML += `
+      <div class="score-row">
+        <div class="score-label">${c.emoji} ${c.id === winner ? '<strong>' + c.id + '</strong>' : c.id}</div>
+        <div class="score-track">
+          <div class="score-fill" style="width:${pct}%;background:${c.color};"></div>
+        </div>
+        <div class="score-num">${pct}%</div>
+      </div>
+    `;
+  });
+
+  launchConfetti();
+  window.scrollTo(0, 0);
+}
+
+function restartQuiz() {
+  currentQuestion = 0;
+  userAnswers = new Array(QUESTIONS.length).fill(null);
+  document.getElementById('quizWrapper').classList.remove('hidden');
+  document.getElementById('resultPage').classList.remove('show');
+  renderQuestion();
+  window.scrollTo(0, 0);
+}
+
+// ============================================================
+// BLOG
+// ============================================================
+function renderBlog() {
+  const grid = document.getElementById('blogGrid');
+  grid.innerHTML = '';
+  ARTICLES.forEach(a => {
+    const card = document.createElement('div');
+    card.className = 'blog-card';
+    card.innerHTML = `
+      <div class="blog-card-thumb" style="background:${a.thumbBg};">${a.emoji}</div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag" style="color:${a.tagColor};background:${a.tagBg};">${a.tag}</span>
+        <h3>${a.title}</h3>
+        <p>${a.summary}</p>
+        <div class="blog-card-meta">
+          <span>📅 ${a.date}</span>
+          <span>⏱ ${a.readTime}閱讀</span>
+        </div>
+      </div>
+    `;
+    card.onclick = () => openArticle(a.id);
+    grid.appendChild(card);
+  });
+}
+
+function openArticle(id) {
+  const a = ARTICLES.find(x => x.id === id);
+  if (!a) return;
+  document.getElementById('articleTag').textContent = a.tag;
+  document.getElementById('articleTag').style.color = a.tagColor;
+  document.getElementById('articleTag').style.background = a.tagBg;
+  document.getElementById('articleTitle').textContent = a.title;
+  document.getElementById('articleMeta').innerHTML = `<span>📅 ${a.date}</span><span>⏱ ${a.readTime}閱讀</span>`;
+  document.getElementById('articleBody').innerHTML = a.content;
+  showPage('article');
+}
+
+// ============================================================
+// HOME STICKERS
+// ============================================================
+function initStickers() {
+  const emojis = ['🧠','💡','📚','✏️','🔬','🎯','💬','🌟','📝','🎨','🦋','🌱','⚡','🔑','🎭'];
+  const container = document.getElementById('stickersContainer');
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement('div');
+    s.className = 'sticker';
+    s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    s.style.left = Math.random() * 100 + '%';
+    s.style.animationDuration = (12 + Math.random() * 16) + 's';
+    s.style.animationDelay = (Math.random() * 14) + 's';
+    s.style.fontSize = (1.6 + Math.random() * 1.8) + 'rem';
+    container.appendChild(s);
+  }
+}
+
+// ============================================================
+// CONFETTI
+// ============================================================
+function launchConfetti() {
+  const colors = ['#ffd94a','#ff7043','#26a69a','#7c4dff','#f06292','#66bb6a','#ffa726'];
+  for (let i = 0; i < 60; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.cssText = `
+      left:${Math.random()*100}vw;
+      top:${-20 + Math.random()*20}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      width:${6+Math.random()*10}px;
+      height:${6+Math.random()*10}px;
+      border-radius:${Math.random()>0.5?'50%':'2px'};
+      animation-duration:${2+Math.random()*2.5}s;
+      animation-delay:${Math.random()*1.2}s;
+    `;
+    document.body.appendChild(piece);
+    piece.addEventListener('animationend', () => piece.remove());
+  }
+}
+
+// ============================================================
+// INIT
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  initStickers();
+  renderQuestion();
+  renderBlog();
+});
+</script>
+</body>
+</html>
