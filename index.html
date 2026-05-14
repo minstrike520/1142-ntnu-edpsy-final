@@ -271,6 +271,35 @@
     min-height: 100vh;
   }
 
+  .quiz-start {
+    max-width: 780px; margin: 0 auto; padding: 60px 24px;
+    text-align: center;
+  }
+  .quiz-start.hidden { display: none; }
+  .quiz-start h2 {
+    font-family: 'Caveat', cursive; font-size: 3rem; font-weight: 700; margin-bottom: 20px;
+  }
+  .quiz-start p {
+    font-size: 1.15rem; color: var(--gray); line-height: 1.8; margin-bottom: 40px;
+  }
+  .quiz-start .instructions {
+    background: var(--paper); border: 3px dashed var(--ink); border-radius: 20px;
+    padding: 32px; text-align: left; max-width: 500px; margin: 0 auto 48px;
+    box-shadow: 6px 6px 0 var(--pink);
+  }
+  .quiz-start .instructions h3 {
+    font-size: 1.3rem; font-weight: 800; margin-bottom: 16px; text-align: center;
+  }
+  .quiz-start .instructions ul {
+    list-style: none;
+  }
+  .quiz-start .instructions li {
+    font-size: 1.05rem; margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start;
+  }
+  .quiz-start .instructions li::before {
+    content: '✨'; font-size: 1.1rem;
+  }
+
   .quiz-wrapper {
     max-width: 780px; margin: 0 auto; padding: 40px 24px 100px;
   }
@@ -618,7 +647,7 @@
 
 <!-- HEADER -->
 <header>
-  <a class="logo" onclick="showPage('home')">
+  <a class="logo" onclick="showPage('home')" style="cursor: pointer;">
     <span class="logo-icon">🧠</span>
     心腦筆記
   </a>
@@ -694,8 +723,26 @@
 <!-- ======================== QUIZ PAGE ======================== -->
 <section class="page" id="page-quiz">
 
+  <!-- Quiz Start -->
+  <div class="quiz-start" id="quizStartPage">
+    <h2>🎭 你是哪種心理類型？</h2>
+    <p>這份測驗以《筆記學院》中的五位學生為原型，每位角色代表一種獨特的學習與思維風格。<br>回答 10 個情境問題，看看你最像誰！</p>
+    
+    <div class="instructions">
+      <h3>📋 測驗說明</h3>
+      <ul>
+        <li>共 10 題，每題有 5 個選項</li>
+        <li>每個選項對應一種角色的思維傾向</li>
+        <li>沒有標準答案，選最直覺的那個</li>
+        <li>測完會出現你的匹配角色與特質報表</li>
+      </ul>
+    </div>
+    
+    <button class="btn btn-primary" style="font-size:1.15rem; padding:16px 32px; border-radius:16px;" onclick="startQuiz()">🚀 開始測驗</button>
+  </div>
+
   <!-- Quiz questions -->
-  <div class="quiz-wrapper" id="quizWrapper">
+  <div class="quiz-wrapper hidden" id="quizWrapper">
     <div class="quiz-header-bar">
       <h2>🎭 學習型人格測驗</h2>
       <p>選出最符合你直覺反應的選項，不需要想太多！</p>
@@ -1208,13 +1255,22 @@ function showPage(pageId) {
   const navLink = document.querySelector(`nav a[data-page="${pageId}"]`);
   if (navLink) navLink.classList.add('active');
 
-  // If going to quiz, reset view to questions (not result)
+  // If going to quiz, show the start page instead of direct questions
   if (pageId === 'quiz') {
-    document.getElementById('quizWrapper').classList.remove('hidden');
+    document.getElementById('quizStartPage').classList.remove('hidden');
+    document.getElementById('quizWrapper').classList.add('hidden');
     document.getElementById('resultPage').classList.remove('show');
-    renderQuestion();
+    currentQuestion = 0;
+    userAnswers = new Array(QUESTIONS.length).fill(null);
   }
 
+  window.scrollTo(0, 0);
+}
+
+function startQuiz() {
+  document.getElementById('quizStartPage').classList.add('hidden');
+  document.getElementById('quizWrapper').classList.remove('hidden');
+  renderQuestion();
   window.scrollTo(0, 0);
 }
 
@@ -1326,9 +1382,9 @@ function submitQuiz() {
 function restartQuiz() {
   currentQuestion = 0;
   userAnswers = new Array(QUESTIONS.length).fill(null);
-  document.getElementById('quizWrapper').classList.remove('hidden');
   document.getElementById('resultPage').classList.remove('show');
-  renderQuestion();
+  document.getElementById('quizWrapper').classList.add('hidden');
+  document.getElementById('quizStartPage').classList.remove('hidden');
   window.scrollTo(0, 0);
 }
 
