@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Quiz from '../components/Quiz.svelte';
+---
+
+<Layout title="心理測驗 | 心腦筆記" description="10 道情境題，找出你的學習型人格！">
+  <div id="page-quiz">
+    <Quiz client:load />
+  </div>
+</Layout>
+
+<style>
+  #page-quiz {
+    background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 50%, #fce4ec 100%);
+    min-height: 100vh;
+    padding-top: 64px;
+  }
+</style>

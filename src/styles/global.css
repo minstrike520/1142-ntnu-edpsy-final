@@ -1,0 +1,89 @@
+/* ========== DESIGN TOKENS ========== */
+:root {
+  --cream: #fdf8f0;
+  --paper: #fff9ee;
+  --yellow: #ffd94a;
+  --coral: #ff7043;
+  --teal: #26a69a;
+  --navy: #1a237e;
+  --purple: #7c4dff;
+  --pink: #f06292;
+  --green: #66bb6a;
+  --orange: #ffa726;
+  --ink: #1c1c2e;
+  --gray: #757575;
+  --light-gray: #e8e0d5;
+  --shadow: rgba(0,0,0,0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', 'Noto Serif TC', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ========== SHARED BUTTON STYLES ========== */
+.btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: 1rem;
+  padding: 14px 28px; border-radius: 12px;
+  border: 3px solid var(--ink);
+  cursor: pointer; text-decoration: none;
+  transition: all 0.15s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn:hover { transform: translate(-3px, -3px); }
+.btn-primary {
+  background: var(--coral); color: #fff;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.btn-primary:hover { box-shadow: 8px 8px 0 var(--ink); }
+.btn-secondary {
+  background: var(--paper); color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.btn-secondary:hover { box-shadow: 8px 8px 0 var(--ink); }
+.btn-teal {
+  background: var(--teal); color: #fff;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.btn-teal:hover { box-shadow: 8px 8px 0 var(--ink); }
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+  color: var(--ink); margin-bottom: 8px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-title::after {
+  content: ''; flex: 1; height: 3px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0, var(--ink) 8px, transparent 8px, transparent 16px);
+  max-width: 200px;
+}
+
+/* ========== NOTEBOOK LINES ========== */
+.notebook-lines {
+  background-image: repeating-linear-gradient(
+    transparent, transparent 31px, rgba(38,166,154,0.15) 31px, rgba(38,166,154,0.15) 32px
+  );
+}
+
+/* ========== CONFETTI ========== */
+@keyframes confettiFall {
+  0% { transform: translateY(-40px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+.confetti-piece {
+  position: fixed; width: 10px; height: 10px;
+  border-radius: 2px; pointer-events: none; z-index: 9999;
+  animation: confettiFall linear forwards;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 3rem; }
+}

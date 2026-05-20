@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('blog')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="小知識 × 心理學科普 | 心腦筆記" description="用白話文帶你認識心理學概念，輕鬆又有趣！">
+  <div id="page-blog">
+    <div class="blog-wrapper">
+      <div class="blog-hero">
+        <h2>📚 小知識 × 心理學科普</h2>
+        <p>每篇文章用白話文帶你認識一個心理學概念，輕鬆又有趣！</p>
+      </div>
+      <div class="blog-grid">
+        {articles.map(article => (
+          <a class="blog-card" href={`/blog/${article.id}`}>
+            <div class="blog-card-thumb" style={`background:${article.data.thumbBg};`}>
+              {article.data.emoji}
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-tag" style={`color:${article.data.tagColor};background:${article.data.tagBg};`}>
+                {article.data.tag}
+              </span>
+              <h3>{article.data.title}</h3>
+              <p>{article.data.summary}</p>
+              <div class="blog-card-meta">
+                <span>📅 {article.data.date}</span>
+                <span>⏱ {article.data.readTime}閱讀</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  #page-blog {
+    background: var(--cream);
+    min-height: 100vh;
+    padding-top: 64px;
+  }
+  .blog-wrapper { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  .blog-hero {
+    text-align: center; margin-bottom: 48px;
+  }
+  .blog-hero h2 {
+    font-family: 'Caveat', cursive; font-size: 2.8rem; font-weight: 700; margin-bottom: 12px;
+  }
+  .blog-hero p { color: var(--gray); font-size: 1rem; }
+
+  .blog-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .blog-card {
+    background: var(--paper); border: 3px solid var(--ink);
+    border-radius: 20px; padding: 0; overflow: hidden;
+    box-shadow: 6px 6px 0 var(--ink);
+    transition: all 0.2s; cursor: pointer;
+    text-decoration: none; color: var(--ink);
+    display: block;
+  }
+  .blog-card:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 var(--ink); }
+
+  .blog-card-thumb {
+    height: 120px; display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; position: relative;
+  }
+  .blog-card-body { padding: 22px 24px 28px; }
+  .blog-card-tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 800;
+    padding: 4px 12px; border-radius: 20px; border: 2px solid var(--ink);
+    margin-bottom: 10px;
+  }
+  .blog-card h3 {
+    font-family: 'Noto Serif TC', serif; font-size: 1.1rem; font-weight: 700;
+    line-height: 1.5; margin-bottom: 10px;
+  }
+  .blog-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+  .blog-card-meta {
+    display: flex; gap: 12px; align-items: center; margin-top: 16px;
+    font-size: 0.8rem; color: var(--gray);
+  }
+</style>

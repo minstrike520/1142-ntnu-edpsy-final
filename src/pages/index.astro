@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="心腦筆記 | 心理學 × 學習法">
+  <div id="page-home">
+    <div class="hero">
+      <!-- Floating stickers -->
+      <div class="stickers" id="stickersContainer"></div>
+
+      <div class="hero-badge">✨ 心理學 × 學習法 科普基地</div>
+      <h1>
+        認識你的<br>
+        <span class="highlight">大腦</span>，<br>
+        解鎖學習力！
+      </h1>
+      <p>用有趣的心理測驗與科普文章，探索人類心智的奧秘。你是哪種學習型人格？現在就來揭曉！</p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="/quiz">🎯 開始測驗</a>
+        <a class="btn btn-secondary" href="/blog">📖 瀏覽文章</a>
+      </div>
+
+      <div class="scroll-worm">
+        <span>繼續往下看</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+
+    <!-- Feature section -->
+    <div class="home-features">
+      <h2 class="section-title">🗂️ 探索這裡</h2>
+      <div class="features-grid">
+        <a class="feature-card card-coral" href="/quiz">
+          <div class="tape washi-top" style="background:rgba(255,112,67,0.4);"></div>
+          <span class="card-tag">HOT 🔥</span>
+          <span class="card-icon">🎭</span>
+          <h3>學習型人格測驗</h3>
+          <p>10 道情境題，找出你在《學習冒險隊》中對應的角色人格！你是穩重的分析師、勇敢的探索者，還是溫暖的協作者？</p>
+        </a>
+        <a class="feature-card card-teal" href="/blog">
+          <div class="tape washi-top" style="background:rgba(38,166,154,0.4);"></div>
+          <span class="card-tag">NEW 🆕</span>
+          <span class="card-icon">🔬</span>
+          <h3>心理學小知識</h3>
+          <p>用白話文解釋認知心理學、記憶科學與學習方法，讓科學變得好懂又好用！</p>
+        </a>
+        <a class="feature-card" href="/quiz">
+          <div class="tape washi-top" style="background:rgba(124,77,255,0.35);"></div>
+          <span class="card-icon">📊</span>
+          <h3>個人化結果報告</h3>
+          <p>測驗結束後獲得專屬人格分析，了解你的學習優勢與盲點，以及對應的角色故事！</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  function initStickers() {
+    const emojis = ['🧠','💡','📚','✏️','🔬','🎯','💬','🌟','📝','🎨','🦋','🌱','⚡','🔑','🎭'];
+    const container = document.getElementById('stickersContainer');
+    if (!container) return;
+    for (let i = 0; i < 18; i++) {
+      const s = document.createElement('div');
+      s.className = 'sticker';
+      s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      s.style.left = Math.random() * 100 + '%';
+      s.style.animationDuration = (12 + Math.random() * 16) + 's';
+      s.style.animationDelay = (Math.random() * 14) + 's';
+      s.style.fontSize = (1.6 + Math.random() * 1.8) + 'rem';
+      container.appendChild(s);
+    }
+  }
+  initStickers();
+</script>
+
+<style>
+  #page-home {
+    background: var(--cream);
+    position: relative; overflow: hidden;
+    padding-top: 64px; min-height: 100vh;
+  }
+
+  .hero {
+    min-height: calc(100vh - 64px);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 40px 24px;
+    position: relative;
+  }
+
+  /* Floating stickers background */
+  .stickers {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  }
+  :global(.sticker) {
+    position: absolute; font-size: 2.4rem; opacity: 0.18;
+    animation: floatSticker linear infinite;
+  }
+  @keyframes floatSticker {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.18; }
+    90% { opacity: 0.18; }
+    100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--yellow); color: var(--ink);
+    font-family: 'Caveat', cursive; font-size: 1.1rem; font-weight: 700;
+    padding: 6px 20px; border-radius: 30px;
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    margin-bottom: 24px;
+    animation: bounceIn 0.8s cubic-bezier(.36,.07,.19,.97);
+  }
+  @keyframes bounceIn {
+    0% { transform: scale(0) rotate(-10deg); }
+    60% { transform: scale(1.15) rotate(3deg); }
+    100% { transform: scale(1) rotate(0); }
+  }
+
+  .hero h1 {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(3.2rem, 10vw, 7rem);
+    font-weight: 700; line-height: 1.05;
+    color: var(--ink); margin-bottom: 16px;
+    position: relative;
+    animation: slideUp 0.9s ease both 0.2s;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 .highlight {
+    position: relative; display: inline-block;
+    color: var(--coral);
+  }
+  .hero h1 .highlight::after {
+    content: '';
+    position: absolute; left: -4px; right: -4px; bottom: -4px; top: -4px;
+    background: var(--yellow); z-index: -1;
+    transform: rotate(-2deg);
+    border-radius: 4px;
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--gray); max-width: 560px; line-height: 1.7;
+    margin-bottom: 36px;
+    animation: slideUp 0.9s ease both 0.4s;
+  }
+
+  .hero-buttons {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    animation: slideUp 0.9s ease both 0.6s;
+  }
+
+  /* Scroll worm animation */
+  .scroll-worm {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    animation: fadeInUp 1s ease both 1s;
+  }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+  .scroll-worm span { font-size: 0.8rem; color: var(--gray); font-family: 'Caveat', cursive; font-size: 1rem; }
+  .scroll-arrow { width: 24px; height: 24px; border-right: 3px solid var(--gray); border-bottom: 3px solid var(--gray); transform: rotate(45deg); animation: arrowBounce 1.4s ease infinite; }
+  @keyframes arrowBounce { 0%,100%{transform:rotate(45deg) translateY(0);} 50%{transform:rotate(45deg) translateY(6px);} }
+
+  /* Feature cards */
+  .home-features { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; margin-top: 40px;
+  }
+  .feature-card {
+    background: var(--paper); border: 3px solid var(--ink);
+    border-radius: 20px; padding: 32px 28px;
+    position: relative; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 6px 6px 0 var(--ink);
+    text-decoration: none; color: var(--ink);
+    display: block;
+  }
+  .feature-card:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 var(--ink); }
+  .feature-card .card-icon {
+    font-size: 3rem; margin-bottom: 16px; display: block;
+  }
+  .feature-card h3 { font-family: 'Caveat', cursive; font-size: 1.8rem; margin-bottom: 12px; }
+  .feature-card p { color: var(--gray); line-height: 1.6; font-size: 0.95rem; }
+  .card-tag {
+    position: absolute; top: -12px; right: 20px;
+    background: var(--yellow); color: var(--ink);
+    font-size: 0.75rem; font-weight: 800;
+    padding: 4px 12px; border-radius: 20px; border: 2px solid var(--ink);
+  }
+  .card-coral { border-color: var(--coral); box-shadow: 6px 6px 0 var(--coral); }
+  .card-coral:hover { box-shadow: 10px 10px 0 var(--coral); }
+  .card-teal { border-color: var(--teal); box-shadow: 6px 6px 0 var(--teal); }
+  .card-teal:hover { box-shadow: 10px 10px 0 var(--teal); }
+
+  /* Tape decorations */
+  .tape {
+    position: absolute; width: 80px; height: 28px;
+    opacity: 0.7; transform: rotate(-5deg);
+  }
+  .washi-top {
+    position: absolute; top: -3px; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 22px; border-radius: 4px;
+    border: 2px solid var(--ink);
+  }
+</style>
