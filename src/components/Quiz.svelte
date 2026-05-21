@@ -5,175 +5,312 @@
   const CHARACTERS = [
     {
       id: 'A',
-      name: '阿瑟 — 分析師',
-      emoji: '🦉',
+      name: '影山飛雄',
+      emoji: '🦅',
       color: '#7c4dff',
-      trait: '深度思考型',
-      desc: '你是《學習冒險隊》中沉穩的智慧擔當阿瑟。你習慣蒐集資訊、仔細分析後才行動，思維嚴謹、邏輯清晰。你最大的優勢是深度理解，偶爾需要注意不要過度分析而陷入「分析癱瘓」。'
+      trait: '觀察模仿型',
+      image: '/kageyama_tobio.webp',
+      desc: '你擅長觀察高手的解題與規劃，將關鍵步驟內化成自己的學習系統。'
     },
     {
       id: 'B',
-      name: '蘿拉 — 探索者',
-      emoji: '🦊',
+      name: '北信介',
+      emoji: '🧭',
       color: '#ff7043',
-      trait: '勇於嘗試型',
-      desc: '你是勇敢的探索者蘿拉！你喜歡在行動中學習，不怕犯錯、勇於嘗試新事物。你的學習動力來自好奇心，能快速適應變化。保持這份衝勁，同時記得偶爾停下來整合所學！'
+      trait: '自我調整型',
+      image: '/kita_shinsuke.webp',
+      desc: '你擅長用內在對話監控自己，靠紀律與自我指導穩定推進。'
     },
     {
       id: 'C',
-      name: '米米 — 協作者',
-      emoji: '🐬',
+      name: '日向翔陽',
+      emoji: '🎨',
       color: '#26a69a',
-      trait: '社交學習型',
-      desc: '你是溫暖有活力的協作者米米！你在團隊互動中學習效率最高，善於傾聽、整合意見，也能激勵他人。你的同理心是最強的學習工具，在群體中你會發光！'
+      trait: '雙碼整合型',
+      image: '/hinata_shouyou.jpg',
+      desc: '你用圖像與文字雙軌處理資訊，將抽象概念轉化成清晰畫面。'
     },
     {
       id: 'D',
-      name: '奇奇 — 創意師',
-      emoji: '🦋',
+      name: '及川徹',
+      emoji: '🔥',
       color: '#f06292',
-      trait: '跨域連結型',
-      desc: '你是充滿創意的跨域思考者奇奇！你擅長把不同領域的知識連結在一起，產生獨特見解。你的學習方式非線性，卻能創造出令人驚喜的成果。學習對你而言是一場創作！'
+      trait: '自我實現型',
+      image: '/oikawa_tooru.jpg',
+      desc: '你被內在成長驅動，重視意義感與舞台感，投入時爆發力十足。'
     },
     {
       id: 'E',
-      name: '艾里 — 堅守者',
-      emoji: '🐢',
+      name: '孤爪研磨',
+      emoji: '🎮',
       color: '#66bb6a',
-      trait: '深耕練習型',
-      desc: '你是穩健的堅守者艾里！你相信「熟能生巧」，透過反覆練習與刻意訓練達到精熟。你不追求速度，但你的學習成果往往最紮實持久。「慢慢來，比較快」是你的座右銘！'
+      trait: '操作制約型',
+      image: '/kozume_kenma.jpg',
+      desc: '你偏好明確的回饋機制，用獎勵與後果塑造穩定的讀書習慣。'
     }
   ];
+
+  const REPORTS = {
+    A: {
+      title: '學習特質分析報告書 (A)',
+      subtitle: '【模仿的天才：影山飛雄型】—— 觀察模仿型學習者',
+      coreTheory: 'Bandura 社會學習論（Social Learning Theory）',
+      keyMechanism: '注意（Attention）➡️ 保持（Retention）➡️ 再現（Reproduction）➡️ 動機（Motivation）',
+      sections: [
+        
+      ]
+    },
+    B: {
+      title: '學習特質分析報告書 (B)',
+      subtitle: '【大腦控制塔：北信介型】—— 自我調整型學習者',
+      coreTheory: 'Meichenbaum 認知行為改變技術（Cognitive Behavior Modification）',
+      keyMechanism: '自我對話（Self-Talk）➡️ 自我指導（Self-Guidance）➡️ 認知行為監控',
+      sections: [
+        {
+          heading: '一、特質概述與行為模式',
+          paragraphs: [
+            '你就像稻荷崎隊長北信介，不依賴瞬間的爆發力或熱血，而是依靠無懈可擊的「常態與紀律」。你是極度理性的「大腦指揮官」，讀書時習慣在內心跟自己對話、下指令。當發現自己分心時，你不會陷入情緒化的焦慮，而是冷靜地對自己進行微監控：「專心點，再撐 10 分鐘就把這段看完。」'
+          ]
+        },
+        {
+          heading: '二、理論深度剖析',
+          paragraphs: [
+            '根據麥肯鮑姆（Meichenbaum）的認知行為改變技術，你非常擅長運用「自我指導訓練」（Self-Instructional Training）來改變自己的認知與行為：'
+          ],
+          bullets: [
+            {
+              label: '語言導引行為：',
+              text: '你將外在的學習規則內化為自身的「內部語言（Inner Speech）」。透過在心中條列步驟、自我提問與確認，成功排除外界干擾。'
+            },
+            {
+              label: '高度的後設認知：',
+              text: '你對自己的思維狀態瞭如指掌，能像第三人稱一樣客觀評估目前的學習進度與專注度，並即時修正。'
+            }
+          ]
+        },
+        {
+          heading: '三、潛在盲點與優化建議',
+          bullets: [
+            {
+              label: '潛在盲點：',
+              text: '過度緊繃、追求完美的步驟。一旦計劃被突發事件打亂，容易產生過度的自我譴責，或因為大腦長期處於監控狀態而感到心智疲勞。'
+            }
+          ],
+          numbered: [
+            '允許「容錯率」：在規劃時間表時，刻意留出「空白彈性時間（Buffer Time）」，接受計劃趕不上變化的現實。',
+            '正面語言替代：自我對話時，多使用「我可以試試看…」的積極語句，少用「我必須/我絕對不能…」的強迫性語句。'
+          ]
+        }
+      ]
+    },
+    C: {
+      title: '學習特質分析報告書 (C)',
+      subtitle: '【多媒體防禦家：日向翔陽型】—— 雙碼整合型學習者',
+      coreTheory: 'Mayer 多媒體學習理論（Multimedia Learning Theory）& Paivio 雙碼理論',
+      keyMechanism: '雙重軌道（Dual Channels）➡️ 有限容量（Limited Capacity）➡️ 主動處理（Active Processing）',
+      sections: [
+        {
+          heading: '一、特質概述與行為模式',
+          paragraphs: [
+            '這類型的學習者如同充滿畫面感的日向翔陽，對於死板、密密麻麻的純文字課本有著天然的排斥，但對圖像、動畫、圖表和色彩卻有著驚人的直覺。你喜歡看懶人包、動畫演示影片，且在讀書讀不下去時，會主動透過「動手畫」心智圖、流程圖或表格，把抽象概念具象化，大腦才能真正活化。'
+          ]
+        },
+        {
+          heading: '二、理論深度剖析',
+          paragraphs: [
+            '根據梅耶（Mayer）的多媒體學習理論與雙碼理論（Dual-Coding Theory），你的大腦運作高度依賴「視覺與語文雙軌並進」：'
+          ],
+          bullets: [
+            {
+              label: '雙重軌道處理：',
+              text: '你的大腦在處理資訊時，視覺通道（圖像、符號）與聽覺/語文通道（文字、聲音）是獨立且同時運作的。當兩者產生聯結時，你的理解力會呈指數型上升。'
+            },
+            {
+              label: '主動構建心理表徵：',
+              text: '你將文字轉化為心智圖的過程，正是多媒體學習中最核心的「主動處理」——選擇資訊、組織資訊，並與既有知識進行整合。'
+            }
+          ]
+        },
+        {
+          heading: '三、潛在盲點與優化建議',
+          bullets: [
+            {
+              label: '潛在盲點：',
+              text: '容易被「精美的視覺」分散注意力（例如花了三小時在把筆記畫得很漂亮，卻沒記住核心觀念）；另外，面對完全沒有圖表的純文字申論或論述題時，容易感到挫折。'
+            }
+          ],
+          numbered: [
+            '先核心、後美化：畫心智圖或表格時，先用單色原子筆快速勾勒邏輯架構，確認理解正確後，再用顏色做重點標記。',
+            '文字圖像化訓練：面對純文字教材時，嘗試在腦海中想像一個「情境畫面」或「動態影片」，主動建立視覺編碼。'
+          ]
+        }
+      ]
+    },
+    D: {
+      title: '學習特質分析報告書 (D)',
+      subtitle: '【內發動力機：及川徹型】—— 自我實現型學習者',
+      coreTheory: 'Maslow 需求層次論（Hierarchy of Needs）',
+      keyMechanism: '成長需求（Growth Needs）➡️ 內發動機（Intrinsic Motivation）➡️ 自我實現',
+      sections: [
+        {
+          heading: '一、特質概述與行為模式',
+          paragraphs: [
+            '你如同青葉城西的隊長及川徹，擁有極強的自尊心與不甘認輸的驕傲。外在的獎勵（如零用錢、獎品）很難真正打動你，外在的逼迫也只會讓你反彈。能讓你挑燈夜戰的，永遠是那種「渴望變強」、「渴望超越昨天的自己」、「證明自己能做到」的內在渴望。你高度重視讀書時的身心狀態與環境氛圍，因為你需要一個能讓你完全投入、展現潛能的舞台。'
+          ]
+        },
+        {
+          heading: '二、理論深度剖析',
+          paragraphs: [
+            '根據馬斯洛（Maslow）的需求層次論，你屬於典型的「成長需求（Growth Needs）」驅動者：'
+          ],
+          bullets: [
+            {
+              label: '自我實現趨向：',
+              text: '你的學習動機來自於「知」的渴望與自我潛能的發揮。當你解開一道難題時，帶給你最大快樂的是那種純粹的、從內心湧現的自我實現感與成長感。'
+            },
+            {
+              label: '身心飽和度：',
+              text: '成長需求要在「基本需求（如睡眠、安全感、受尊重的氛圍）」得到滿足後才會強烈展現。因此，當你心情煩躁或環境吵雜時，基本需求受阻，內發動機就會暫時熄火。'
+            }
+          ]
+        },
+        {
+          heading: '三、潛在盲點與優化建議',
+          bullets: [
+            {
+              label: '潛在盲點：',
+              text: '情緒與動機起伏較大。當這門學科讓你找不到「意義感」，或是環境讓你覺得不舒服、不受尊重時，你可能會出現嚴重的拖延症或直接放棄。'
+            }
+          ],
+          numbered: [
+            '重塑學科意義：面對枯燥的必修科目，不要硬讀。試著去尋找這門學科與你未來夢想、或個人核心能力之間的「隱藏聯結」，賦予它內在價值。',
+            '打造儀式感環境：為自己固定的讀書時間建立「神聖空間」（如特定的咖啡廳、乾淨的書桌、抗噪耳機），確保基本需求快速沉澱，釋放內發動力。'
+          ]
+        }
+      ]
+    },
+    E: {
+      title: '學習特質分析報告書 (E)',
+      subtitle: '【行為塑造師：孤爪研磨型】—— 操作制約型學習者',
+      coreTheory: 'Skinner 操作制約理論（Operant Conditioning）',
+      keyMechanism: '效果律（Law of Effect）➡️ 正/負增強（Positive/Negative Reinforcement）➡️ 誘因結構',
+      sections: [
+        {
+          heading: '一、特質概述與行為模式',
+          paragraphs: [
+            '你就像音駒的高中生腦袋孤爪研磨，把學習當作一場「打怪升級」的遊戲。你不太相信抽象的熱血或夢想，你更相信實質的「反饋機制」。你非常擅長透過「給自己甜頭」來誘騙大腦開始工作。不論是讀完兩章就能滑手機、吃大餐（正增強），或是為了今晚能熬夜看影集而逼自己下午讀完（負增強避開後果），你的行為完全由「結果」來決定。'
+          ]
+        },
+        {
+          heading: '二、理論深度剖析',
+          paragraphs: [
+            '根據斯金納（Skinner）的操作制約理論與桑代克的法律效果律，你的行為模式深受「後果（Consequences）」的塑造：'
+          ],
+          bullets: [
+            {
+              label: '正/負增強的交互運用：',
+              text: '你是設計「增強物（Reinforcers）」的天才。滿意的結果會加強該學習行為的重複可能性，而不滿意的後果（如被當、沒時間玩）則會促使你採取行動去規避。'
+            },
+            {
+              label: '即時反饋依賴：',
+              text: '你的大腦對「即時獎勵」非常敏感。這也是為什麼明確的積分、搶答加分或排名的制約機制最能激發你在課堂上的幹勁。'
+            }
+          ]
+        },
+        {
+          heading: '三、潛在盲點與優化建議',
+          bullets: [
+            {
+              label: '潛在盲點：',
+              text: '容易產生「獎勵飽和」或「走捷徑」心理。如果獎勵不夠吸引人，動機就會瞬間崩潰；有時為了趕快拿到滑手機的獎勵，可能會流於表面敷衍的讀書，而沒有真正理解。'
+            }
+          ],
+          numbered: [
+            '代幣制度（Token Economy）：不要每讀 10 分鐘就給一次大獎。改用累積點數制（例如：專心 25 分鐘得一點，集滿四點才能換一個大獎勵），拉長行為堅持的時間。',
+            '間歇增強（Intermittent Reinforcement）：當讀書習慣逐漸養成後，刻意讓獎勵變得「隨機」，例如讀完後擲骰子決定今晚能玩多久遊戲，這種不可預測性會讓大腦多巴胺分泌更旺盛，行為更持久。'
+          ]
+        }
+      ]
+    }
+  };
 
   const QUESTIONS = [
     {
       id: 1,
-      scenario: '📖 情境：你剛拿到一本全新的教科書',
-      text: '你拿到一本從未接觸過的新科目教科書，你第一個動作是？',
+      scenario: '🧭 情境：接觸陌生高難度科目',
+      text: '當你開始接觸一個全新、難度極高的陌生科目時，你的第一步通常是？',
       tag: '學習起點',
       options: [
-        { text: '先翻到目錄，把整本架構看完再開始。', score: { A: 3 } },
-        { text: '直接翻到最有趣的章節，跳著讀。', score: { B: 3 } },
-        { text: '拍照傳給同學，問他們哪部分最重要。', score: { C: 3 } },
-        { text: '隨手翻翻，看圖表和標題，找感覺。', score: { D: 3 } },
-        { text: '從第一頁開始，一字不漏地讀完第一章。', score: { E: 3 } }
+        { text: '去找班上學霸的筆記，或是上網看大神分享的「神級讀書 VLOG」，觀察他們怎麼規劃與解題。', score: { A: 3 } },
+        { text: '先在心裡跟自己對話、下指令，冷靜規劃步驟：「好，我先花十分鐘看目錄，把不懂的標出來」。', score: { B: 3 } },
+        { text: '上網找圖解、懶人包或有動畫演示的教學影片，覺得看圖比死看密密麻麻的純文字好懂太多了。', score: { C: 3 } },
+        { text: '覺得「身心狀態」最重要！如果沒睡飽、環境太吵或心情很煩，我絕對一頁課本也讀不進去。', score: { D: 3 } },
+        { text: '為自己設定一個即時獎勵（如：讀完這兩章，我就能滑手機 15 分鐘或吃頓好料），才有動力開始。', score: { E: 3 } }
       ]
     },
     {
       id: 2,
-      scenario: '🤔 情境：你遇到一道不會的難題',
-      text: '考試或作業中遇到一道完全不懂的題目，你的反應是？',
-      tag: '面對挑戰',
+      scenario: '📵 情境：讀書分心',
+      text: '讀書讀到一半，當你突然發現自己分心、想玩手機時，你通常怎麼拉回注意力？',
+      tag: '自我調節',
       options: [
-        { text: '先標記起來，把其他題做完後回來研究。', score: { A: 2, E: 1 } },
-        { text: '立刻嘗試各種解法，就算寫錯也沒關係。', score: { B: 3 } },
-        { text: '偷偷問旁邊的同學，或想等等討論。', score: { C: 3 } },
-        { text: '用類比或故事想像它的意思，換個角度思考。', score: { D: 3 } },
-        { text: '回憶練習過的類題，一步一步套用公式。', score: { E: 3 } }
+        { text: '想像那些實力很強的楷模，告訴自己：「這時候那些高手一定還在堅持，我也不能輸！」', score: { A: 3 } },
+        { text: '啟動大腦內部對話，對自己進行微監控：「專心點！再撐 10 分鐘這部分就看完了，把注意力拉回來！」', score: { B: 3 } },
+        { text: '改用另一種方式整理資訊，把課本文字動手畫成心智圖、表格或流程圖，強迫大腦主動動起來。', score: { C: 3 } },
+        { text: '停下來思考這門科目對我的意義，告訴自己這是為了「我的未來夢想」而讀，而不是為了應付考試。', score: { D: 3 } },
+        { text: '提醒自己如果不趕快讀完，今天晚上就不能去看想看的影集了（利用負增強避開討厭的後果）。', score: { E: 3 } }
       ]
     },
     {
       id: 3,
-      scenario: '📝 情境：準備重要考試',
-      text: '距離大考還有兩週，你會怎麼制定複習計畫？',
-      tag: '備考策略',
+      scenario: '🧠 情境：新題型挑戰',
+      text: '面對考試或模擬考中從未見過的超創新題型，你的大腦第一時間會？',
+      tag: '臨場反應',
       options: [
-        { text: '建立詳細時間表，每天要完成哪些章節全寫清楚。', score: { A: 3 } },
-        { text: '大概掃一下，遇到不懂的馬上搜尋或嘗試。', score: { B: 3 } },
-        { text: '揪朋友一起讀書，互相出題考彼此。', score: { C: 3 } },
-        { text: '做一張心智圖，把所有知識點連起來。', score: { D: 3 } },
-        { text: '把歷年考古題一題一題刷完，刻意練習弱點。', score: { E: 3 } }
+        { text: '試圖回想高手或老師遇過類似考題時的應變邏輯，嘗試模仿他們的解題思路。', score: { A: 3 } },
+        { text: '像冷靜的指揮官一樣在心裡引導自己：「不要慌，先列出已知條件、再推導公式，一步步來」。', score: { B: 3 } },
+        { text: '在腦中主動整合題目給的文字脈絡與圖表資訊，尋找視覺與語文訊息之間的隱藏聯結。', score: { C: 3 } },
+        { text: '相信自己的潛能，這是我超越極限、自我實現的機會，決定靠自己的內發意志力克服它。', score: { D: 3 } },
+        { text: '想到如果這題寫對、成績變好，我就能獲得滿意的結果（如：家人的讚賞或自我獎勵），因此充滿幹勁。', score: { E: 3 } }
       ]
     },
     {
       id: 4,
-      scenario: '🎮 情境：學習新技能',
-      text: '你要學一個全新的技能（如彈吉他、寫程式），你會怎麼開始？',
-      tag: '技能習得',
+      scenario: '✨ 情境：學習成就感',
+      text: '當你花了很多精力，終於理解一個超難的概念時，你的「成就感」主要來自？',
+      tag: '學習動機',
       options: [
-        { text: '先找理論資料看完，搞清楚底層原理再動手。', score: { A: 3 } },
-        { text: '直接上手摸索，邊做邊學，犯錯就改。', score: { B: 3 } },
-        { text: '找一個已經會的朋友帶著我入門。', score: { C: 3 } },
-        { text: '搜尋有沒有好玩或非典型的學習資源。', score: { D: 3 } },
-        { text: '找到一套固定課程，每天練習固定時間。', score: { E: 3 } }
+        { text: '我終於掌握了這個技能，能像我一直崇拜、注意的楷模一樣利落地解開難題了。', score: { A: 3 } },
+        { text: '這種從一開始不會、到透過「自我對話與指導」成功掌控自己行為的過程，讓我極有成就感。', score: { B: 3 } },
+        { text: '這種大腦雙軌運作成功，把混亂的文字與抽象的圖像整合出清晰心理表徵的「看懂感」。', score: { C: 3 } },
+        { text: '感受到自己內在的進步與成長，這種純粹「超越昨天自己」的自我實現感。', score: { D: 3 } },
+        { text: '理解這個概念能讓我在接下來的考試中獲得好分數、或是避免被當的悲慘後果（效果律）。', score: { E: 3 } }
       ]
     },
     {
       id: 5,
-      scenario: '💬 情境：組員報告意見不同',
-      text: '小組報告時，你提出的方向和其他人想法不同，你怎麼辦？',
-      tag: '團隊合作',
+      scenario: '🏫 情境：課堂偏好',
+      text: '如果能自由挑選，你最喜歡什麼樣的課堂環境或學習方式？',
+      tag: '學習環境',
       options: [
-        { text: '提出數據和邏輯依據，理性說明自己的想法。', score: { A: 3 } },
-        { text: '先說「不然就試試看我的方法，不行再換」。', score: { B: 3 } },
-        { text: '想辦法找到融合大家想法的中間方案。', score: { C: 3 } },
-        { text: '把兩個方案腦力激盪，看能不能碰出新火花。', score: { D: 3 } },
-        { text: '按照大家之前說好的分工方式執行就好。', score: { E: 3 } }
+        { text: '老師上課時會親自、詳細地示範每一個解題步驟，讓我能百分之百複製並模仿每一個細節。', score: { A: 3 } },
+        { text: '老師上課不拖泥帶水，會留給我們自學、自我監控進度以及遇到問題自我調整的空間。', score: { B: 3 } },
+        { text: '簡報和板書設計得極具美感與圖文邏輯，能引導我的聽覺與視覺同時主動處理訊息。', score: { C: 3 } },
+        { text: '氛圍真誠、互相尊重，且給予學生高度的自由選擇權，激發我們內發性的自願探索。', score: { D: 3 } },
+        { text: '有明確的積分獎勵、搶答加分或排名的制約機制，每達成一個章節就有即時的滿意結果。', score: { E: 3 } }
       ]
     },
     {
       id: 6,
-      scenario: '😵 情境：讀到腦霧',
-      text: '你已經讀書兩小時，開始感到疲倦，注意力渙散，你會？',
-      tag: '自我調節',
+      scenario: '🚀 情境：高效讀書',
+      text: '回顧你過往最好的學習經驗，你覺得自己能「高效讀書」的絕對關鍵是？',
+      tag: '關鍵策略',
       options: [
-        { text: '查一下專注力的研究，看怎樣休息最科學。', score: { A: 3 } },
-        { text: '乾脆換去嘗試另一個科目或新方法轉換心情。', score: { B: 3 } },
-        { text: '傳訊息給朋友抱怨，或約人聊幾分鐘再繼續。', score: { C: 3 } },
-        { text: '用音樂或塗鴉幫大腦充電，激發另一種感知。', score: { D: 3 } },
-        { text: '按計畫設15分鐘計時器休息，時間到繼續。', score: { E: 3 } }
-      ]
-    },
-    {
-      id: 7,
-      scenario: '🔍 情境：主題報告研究',
-      text: '老師出了一個開放性主題報告，你最先做什麼？',
-      tag: '自主研究',
-      options: [
-        { text: '拆解問題，列出「需要知道什麼」的清單。', score: { A: 3 } },
-        { text: '直接Google搜尋，看跳出什麼有趣的東西。', score: { B: 3 } },
-        { text: '問同學選什麼題目，一起討論方向。', score: { C: 3 } },
-        { text: '往自己興趣的方向走，找一個別人沒想到的角度。', score: { D: 3 } },
-        { text: '先收集夠多資料，再開始動筆。', score: { E: 3 } }
-      ]
-    },
-    {
-      id: 8,
-      scenario: '🌙 情境：睡前回顧',
-      text: '你在睡前想要「鞏固今天所學」，你的做法是？',
-      tag: '記憶鞏固',
-      options: [
-        { text: '在筆記本上整理今天學到的重點知識。', score: { A: 3 } },
-        { text: '思考明天可以怎麼應用今天學到的東西。', score: { B: 2, D: 1 } },
-        { text: '把今天印象最深的事情說給家人或朋友聽。', score: { C: 3 } },
-        { text: '用顏色或圖像在腦海中重現今天的內容。', score: { D: 3 } },
-        { text: '用間隔重複APP複習今天新增的記憶卡片。', score: { E: 3 } }
-      ]
-    },
-    {
-      id: 9,
-      scenario: '🎯 情境：你收到一個批評',
-      text: '老師批評你的報告「太過表面、缺乏深度」，你的第一反應是？',
-      tag: '成長回應',
-      options: [
-        { text: '仔細分析哪些地方不夠深，找出根本問題。', score: { A: 3 } },
-        { text: '馬上重寫，邊做邊想怎麼改進。', score: { B: 3 } },
-        { text: '找同學看看他們覺得哪裡可以加強。', score: { C: 3 } },
-        { text: '換一個更創新的切入點重新詮釋主題。', score: { D: 3 } },
-        { text: '對照老師給的評分標準，按項目一一改進。', score: { E: 3 } }
-      ]
-    },
-    {
-      id: 10,
-      scenario: '🚀 情境：學習成就感',
-      text: '什麼樣的學習經驗會讓你覺得「今天超有收穫」？',
-      tag: '學習動力',
-      options: [
-        { text: '終於搞清楚一個困惑很久的原理，豁然開朗。', score: { A: 3 } },
-        { text: '親手完成一個新東西，哪怕不完美。', score: { B: 3 } },
-        { text: '和他人一起解決了難題，過程很有趣。', score: { C: 3 } },
-        { text: '發現兩個不同領域的知識竟然有共通之處。', score: { D: 3 } },
-        { text: '完成了今天的學習計畫，達到預設目標。', score: { E: 3 } }
+        { text: '找到一個實力強大的「楷模」，並透過觀察與模仿他的讀書模式，讓自己少走很多彎路。', score: { A: 3 } },
+        { text: '培養強大的「內心對話程序」，在讀書時隨時監控自己的認知進度與專注度。', score: { B: 3 } },
+        { text: '拒絕純文字的密集疲勞轟炸，善用多媒體與圖文整合，活化大腦的雙重軌道處理。', score: { C: 3 } },
+        { text: '點燃內發性的熱情，不是為了任何外在考卷或逼迫，而是自己真正渴望變強。', score: { D: 3 } },
+        { text: '幫大腦設計一套獎懲分明的操作系統，透過增強物來強烈塑造出固定的讀書慣性。', score: { E: 3 } }
       ]
     }
   ];
@@ -189,6 +326,7 @@
   
   let resultCharacter = null;
   let resultScores = null;
+  let resultReport = null;
 
   // Derived state
   $: currentQ = QUESTIONS[currentQuestionIndex];
@@ -228,6 +366,7 @@
     // Find winner
     const winnerId = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
     resultCharacter = CHARACTERS.find(c => c.id === winnerId);
+    resultReport = REPORTS[winnerId];
     
     // Prepare detailed scores
     const total = Object.values(scores).reduce((a, b) => a + b, 0) || 1;
@@ -246,6 +385,7 @@
     step = 'start';
     currentQuestionIndex = 0;
     userAnswers = new Array(QUESTIONS.length).fill(null);
+    resultReport = null;
     window.scrollTo(0, 0);
   }
 
@@ -273,12 +413,12 @@
 {#if step === 'start'}
   <div class="quiz-start">
     <h2>🎭 你是哪種心理類型？</h2>
-    <p>這份測驗以《筆記學院》中的五位學生為原型，每位角色代表一種獨特的學習與思維風格。<br>回答 10 個情境問題，看看你最像誰！</p>
+    <p>這份測驗以《排球少年!!》中的五位學生為原型，每位角色代表一種獨特的學習與思維風格。<br>回答 {QUESTIONS.length} 個情境問題，看看你最像誰！</p>
     
     <div class="instructions">
       <h3>📋 測驗說明</h3>
       <ul>
-        <li>共 10 題，每題有 5 個選項</li>
+        <li>共 {QUESTIONS.length} 題，每題有 5 個選項</li>
         <li>每個選項對應一種角色的思維傾向</li>
         <li>沒有標準答案，選最直覺的那個</li>
         <li>測完會出現你的匹配角色與特質報表</li>
@@ -346,10 +486,64 @@
 
     <div class="character-result" style="border-color: {resultCharacter.color}; box-shadow: 10px 10px 0 {resultCharacter.color};">
       <span class="character-emoji">{resultCharacter.emoji}</span>
+      {#if resultCharacter && resultCharacter.image}
+        <img class="character-photo" src={resultCharacter.image} alt={`${resultCharacter.name} 角色圖片`} loading="lazy" />
+      {/if}
       <div class="character-name">{resultCharacter.name}</div>
       <div class="character-trait">{resultCharacter.trait}</div>
       <p class="character-desc">{resultCharacter.desc}</p>
     </div>
+
+    {#if resultReport}
+      <div class="report-card">
+        <div class="report-header">
+          <h3>{resultReport.title}</h3>
+          <p class="report-subtitle">{resultReport.subtitle}</p>
+        </div>
+        <div class="report-core">
+          <div class="report-core-item">
+            <span class="report-core-label">核心理論</span>
+            <span class="report-core-text">{resultReport.coreTheory}</span>
+          </div>
+          <div class="report-core-item">
+            <span class="report-core-label">關鍵機制</span>
+            <span class="report-core-text">{resultReport.keyMechanism}</span>
+          </div>
+        </div>
+        <div class="report-sections">
+          {#each resultReport.sections as section}
+            <div class="report-section">
+              <h4>{section.heading}</h4>
+              {#if section.paragraphs}
+                {#each section.paragraphs as para}
+                  <p>{para}</p>
+                {/each}
+              {/if}
+              {#if section.bullets}
+                <ul>
+                  {#each section.bullets as item}
+                    <li>
+                      {#if item.label}
+                        <strong>{item.label}</strong> {item.text}
+                      {:else}
+                        {item.text}
+                      {/if}
+                    </li>
+                  {/each}
+                </ul>
+              {/if}
+              {#if section.numbered}
+                <ol>
+                  {#each section.numbered as item}
+                    <li>{item}</li>
+                  {/each}
+                </ol>
+              {/if}
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
 
     <div class="scores-breakdown">
       <h3>📊 各角色傾向分析</h3>
@@ -546,6 +740,11 @@
     animation: cardIn 0.5s ease both;
   }
   .character-emoji { font-size: 5rem; margin-bottom: 16px; display: block; }
+  .character-photo {
+    width: min(220px, 60vw); height: auto; display: block; margin: 0 auto 18px;
+    border-radius: 18px; border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink);
+    background: #fff;
+  }
   .character-name {
     font-family: 'Caveat', cursive; font-size: 2.4rem; font-weight: 700;
     margin-bottom: 8px;
@@ -589,6 +788,42 @@
     width: 36px; text-align: right; font-size: 0.85rem; font-weight: 800;
     color: var(--gray);
   }
+
+  .report-card {
+    background: var(--paper); border: 3px solid var(--ink); border-radius: 24px;
+    padding: 32px; box-shadow: 6px 6px 0 var(--ink); margin-bottom: 32px;
+  }
+  .report-header h3 {
+    font-family: 'Caveat', cursive; font-size: 2rem; margin-bottom: 8px;
+  }
+  .report-subtitle {
+    font-size: 1.05rem; font-weight: 800; color: var(--ink);
+  }
+  .report-core {
+    display: grid; gap: 12px; margin: 20px 0 24px;
+  }
+  .report-core-item {
+    background: var(--cream); border: 2px solid var(--ink); border-radius: 16px;
+    padding: 12px 16px; display: grid; gap: 6px;
+  }
+  .report-core-label {
+    font-size: 0.8rem; font-weight: 800; color: var(--gray);
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .report-core-text { font-size: 0.98rem; line-height: 1.6; color: var(--ink); }
+  .report-section { margin-bottom: 22px; }
+  .report-section h4 {
+    font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;
+  }
+  .report-section p {
+    color: var(--gray); line-height: 1.75; margin-bottom: 12px;
+  }
+  .report-section ul,
+  .report-section ol {
+    padding-left: 20px; margin-bottom: 14px; color: var(--gray);
+  }
+  .report-section li { margin-bottom: 10px; line-height: 1.7; }
+  .report-section strong { color: var(--ink); }
 
   .result-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
   .btn-coral {
