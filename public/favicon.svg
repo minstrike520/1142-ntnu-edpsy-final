@@ -1,9 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
-    <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- 背景漸層 -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+      <stop offset="0%" stop-color="#2D124D" />
+      <stop offset="100%" stop-color="#0C0414" />
+    </radialGradient>
+
+    <!-- 大腦左側漸層（理性/科技） -->
+    <linearGradient id="brainLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F2FE" />
+      <stop offset="100%" stop-color="#4FACFE" />
+    </linearGradient>
+
+    <!-- 大腦右側漸層（感性/創意/探索） -->
+    <linearGradient id="brainRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F355DA" />
+      <stop offset="100%" stop-color="#7000FF" />
+    </linearGradient>
+
+    <!-- 金色鑰匙孔與光芒 -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF475" />
+      <stop offset="100%" stop-color="#FF9800" />
+    </linearGradient>
+
+    <!-- 內陰影與發光濾鏡 -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- 圓角背景 -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- 背景裝飾：心理測驗與探索元素（微弱幾何線條） -->
+  <g opacity="0.15" stroke="#FFFFFF" stroke-width="2" fill="none">
+    <circle cx="256" cy="256" r="220" stroke-dasharray="8,8" />
+    <polygon points="256,20 472,392 40,392" stroke-dasharray="5,5" />
+    <path d="M100,100 L412,412 M412,100 L100,412" />
+  </g>
+
+  <!-- 大腦與解鎖核心主體組 -->
+  <g transform="translate(0, -10)">
+    
+    <!-- 左腦：象徵邏輯、科普、學習力 -->
+    <path d="M244,120 
+             C170,120 120,160 120,230 
+             C120,265 140,290 155,310 
+             C145,330 140,355 165,380 
+             C190,405 220,400 244,385 Z" 
+          fill="url(#brainLeft)" />
+
+    <!-- 右腦：象徵心理、創意、人格特質 -->
+    <path d="M268,120 
+             C342,120 392,160 392,230 
+             C392,265 372,290 357,310 
+             C367,330 372,355 347,380 
+             C322,405 292,400 268,385 Z" 
+          fill="url(#brainRight)" />
+
+    <!-- 腦袋中央的分割與連結線（網格科技感） -->
+    <path d="M256,120 L256,385" stroke="#0C0414" stroke-width="6" stroke-linecap="round" />
+
+    <!-- 大腦表面線條裝飾（讓大腦更生動） -->
+    <g fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.3">
+      <!-- 左腦迴旋 -->
+      <path d="M180,180 C160,200 160,240 190,250" />
+      <path d="M160,280 C180,300 200,280 210,320" />
+      <!-- 右腦迴旋 -->
+      <path d="M332,180 C352,200 352,240 322,250" />
+      <path d="M352,280 C332,300 312,280 302,320" />
+    </g>
+
+    <!-- 核心解鎖：鑰匙孔（置中） -->
+    <!-- 鑰匙孔外發光圈 -->
+    <circle cx="256" cy="260" r="45" fill="#0C0414" opacity="0.8" />
+    <circle cx="256" cy="260" r="45" fill="none" stroke="url(#goldGrad)" stroke-width="4" filter="url(#glow)" />
+    
+    <!-- 鑰匙孔本體 -->
+    <path d="M256,235 
+             C242,235 231,246 231,260 
+             C231,271 238,280 247,283 
+             L242,305 L270,305 L265,283 
+             C274,280 281,271 281,260 
+             C281,246 270,235 256,235 Z" 
+          fill="url(#goldGrad)" />
+  </g>
+
+  <!-- 裝飾元素：解鎖後的靈感星芒與學習型人格幾何圖形 -->
+  <!-- 四角星芒（靈感與揭曉） -->
+  <path d="M256,45 L261,70 L286,75 L261,80 L256,105 L251,80 L226,75 L251,70 Z" fill="#FFF475" filter="url(#glow)" />
+  <path d="M420,220 L423,235 L438,238 L423,241 L420,256 L417,241 L402,238 L417,235 Z" fill="#00F2FE" />
+  <path d="M92,240 L94,250 L104,252 L94,254 L92,264 L90,254 L80,252 L90,250 Z" fill="#F355DA" />
+
+  <!-- 小幾何圖形（代表心理測驗的小方塊、三角形） -->
+  <rect x="360" y="140" width="12" height="12" rx="2" fill="#00F2FE" transform="rotate(45 366 146)" />
+  <polygon points="140,130 148,144 132,144" fill="#F355DA" />
+  <circle cx="256" cy="440" r="6" fill="#FFF475" />
 </svg>

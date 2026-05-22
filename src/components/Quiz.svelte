@@ -10,7 +10,12 @@
       color: '#7c4dff',
       trait: '觀察模仿型',
       image: '/kageyama_tobio.webp',
-      desc: '你擅長觀察高手的解題與規劃，將關鍵步驟內化成自己的學習系統。'
+      reportImage: '/report_kageyama_tobio.jpg',
+      desc: '你擅長觀察高手的解題與規劃，將關鍵步驟內化成自己的學習系統。',
+      realExample: {
+        title: '【美國籃球巨星：科比·布萊恩 (Kobe Bryant)】',
+        content: '傳奇球星 Kobe Bryant 在剛進入 NBA 時，將「籃球之神」麥可·喬丹 (Michael Jordan) 視為終極楷模。Kobe 不僅反覆觀看喬丹的比賽錄影帶，逐幀拆解他的後仰跳投、腳步移動和突破時機，甚至連喬丹在場上的小動作和垃圾話都一併模仿。Kobe 透過這種高度專注的「觀察學習」與不斷「再生」練習，最終將喬丹的技術轉化為自己的武器，成為新一代的傳奇。這正是透過注意、保持、再生與動機，完美複製楷模成功的經典案例。'
+      }
     },
     {
       id: 'B',
@@ -19,7 +24,12 @@
       color: '#ff7043',
       trait: '自我調整型',
       image: '/kita_shinsuke.webp',
-      desc: '你擅長用內在對話監控自己，靠紀律與自我指導穩定推進。'
+      reportImage: '/report_kita_shinsuke.jpg',
+      desc: '你擅長用內在對話監控自己，靠紀律與自我指導穩定推進。',
+      realExample: {
+        title: '【日本傳奇棒球名將：鈴木一朗】',
+        content: '鈴木一朗以驚人的自律與「自我調節」聞名於世。他從國小開始，每天不論颳風下雨都堅持練球，並在日記中寫下精準的自我反思與下一步計畫。到了大聯盟，他每天進球場的時間、拉筋的動作順序、賽前吃的食物、甚至球具的擺放位置，都精準到近乎制式化。一朗曾說：「達成夢想的方法，就是累積每一個微不足道的小步驟。」他不是靠突發的靈感，而是靠高度的自我監控與常規建立來維持巔峰狀態。'
+      }
     },
     {
       id: 'C',
@@ -28,7 +38,12 @@
       color: '#26a69a',
       trait: '雙碼整合型',
       image: '/hinata_shouyou.jpg',
-      desc: '你用圖像與文字雙軌處理資訊，將抽象概念轉化成清晰畫面。'
+      reportImage: '/report_hinata_shouyou.jpg',
+      desc: '你用圖像與文字雙軌處理資訊，將抽象概念轉化成清晰畫面。',
+      realExample: {
+        title: '【世紀天才科學家：阿爾伯特·愛因斯坦 (Albert Einstein)】',
+        content: '愛因斯坦曾透露，他在思考科學理論時，大腦裡最先出現的往往不是數學公式或文字，而是「視覺圖像」與「空間感」。例如，他在推導狹義相對論時，是在腦中想像「自己正騎在一束光線上前進，手上拿著鏡子」的畫面；在思考廣義相對論時，則是想像「時空像一張被鉛球壓凹的彈簧床」。他將這些抽象的文字概念與具體的視覺表徵進行雙碼整合，最終才轉化為數學公式。'
+      }
     },
     {
       id: 'D',
@@ -37,7 +52,12 @@
       color: '#f06292',
       trait: '自我實現型',
       image: '/oikawa_tooru.jpg',
-      desc: '你被內在成長驅動，重視意義感與舞台感，投入時爆發力十足。'
+      reportImage: '/report_oikawa_tooru.jpg',
+      desc: '你被內在成長驅動，重視意義感與舞台感，投入時爆發力十足。',
+      realExample: {
+        title: '【發明大王：湯瑪斯·愛迪生 (Thomas Edison)】',
+        content: '愛迪生在研發電燈泡的過程中，經歷了數千次的失敗。外界普遍認為他很痛苦、面臨巨大挫折，但愛迪生卻說：「我從未失敗過，我只是成功發現了數千種行不通的方法。」對他而言，研究不是為了應付誰，而是為了滿足內心對真理探索的最高渴望。當他在實驗室裡達到廢寢忘食的「心流」狀態時，生理的疲憊和外界的雜音都被自動屏蔽，這種純粹由內在動機驅使、不斷突破自我極限的過程，正是 Maslow 所說的「自我實現」。'
+      }
     },
     {
       id: 'E',
@@ -46,7 +66,12 @@
       color: '#66bb6a',
       trait: '操作制約型',
       image: '/kozume_kenma.jpg',
-      desc: '你偏好明確的回饋機制，用獎勵與後果塑造穩定的讀書習慣。'
+      reportImage: '/report_kozume_kenma.jpg',
+      desc: '你偏好明確的回饋機制，用獎勵與後果塑造穩定的讀書習慣。',
+      realExample: {
+        title: '【知名心理學家與作家：B.F. 史金納 (B.F. Skinner)】',
+        content: '提出操作制約理論的心理學大師 Skinner 本人，就是這個理論的最佳實踐者！他在撰寫龐大的學術論文與著作時，為了克服拖延症，每天都會為自己設定極其精準的字數目標。每當他寫滿一定的字數，他就會拉動一個自製的計數器，給自己一個小小的「正增強」（例如：允許自己休息幾分鐘、喝杯咖啡或聽一段音樂）。他正是透過這種將大任務拆解成小關卡，並給予即時回饋的方式，高效完成了大量的學術成就。'
+      }
     }
   ];
 
@@ -326,7 +351,6 @@
   
   let resultCharacter = null;
   let resultScores = null;
-  let resultReport = null;
 
   // Derived state
   $: currentQ = QUESTIONS[currentQuestionIndex];
@@ -366,7 +390,6 @@
     // Find winner
     const winnerId = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
     resultCharacter = CHARACTERS.find(c => c.id === winnerId);
-    resultReport = REPORTS[winnerId];
     
     // Prepare detailed scores
     const total = Object.values(scores).reduce((a, b) => a + b, 0) || 1;
@@ -385,7 +408,6 @@
     step = 'start';
     currentQuestionIndex = 0;
     userAnswers = new Array(QUESTIONS.length).fill(null);
-    resultReport = null;
     window.scrollTo(0, 0);
   }
 
@@ -494,54 +516,18 @@
       <p class="character-desc">{resultCharacter.desc}</p>
     </div>
 
-    {#if resultReport}
-      <div class="report-card">
-        <div class="report-header">
-          <h3>{resultReport.title}</h3>
-          <p class="report-subtitle">{resultReport.subtitle}</p>
-        </div>
-        <div class="report-core">
-          <div class="report-core-item">
-            <span class="report-core-label">核心理論</span>
-            <span class="report-core-text">{resultReport.coreTheory}</span>
-          </div>
-          <div class="report-core-item">
-            <span class="report-core-label">關鍵機制</span>
-            <span class="report-core-text">{resultReport.keyMechanism}</span>
-          </div>
-        </div>
-        <div class="report-sections">
-          {#each resultReport.sections as section}
-            <div class="report-section">
-              <h4>{section.heading}</h4>
-              {#if section.paragraphs}
-                {#each section.paragraphs as para}
-                  <p>{para}</p>
-                {/each}
-              {/if}
-              {#if section.bullets}
-                <ul>
-                  {#each section.bullets as item}
-                    <li>
-                      {#if item.label}
-                        <strong>{item.label}</strong> {item.text}
-                      {:else}
-                        {item.text}
-                      {/if}
-                    </li>
-                  {/each}
-                </ul>
-              {/if}
-              {#if section.numbered}
-                <ol>
-                  {#each section.numbered as item}
-                    <li>{item}</li>
-                  {/each}
-                </ol>
-              {/if}
-            </div>
-          {/each}
-        </div>
+    {#if resultCharacter && resultCharacter.reportImage}
+      <div class="report-image-container">
+        <h3>📄 學習特質分析報告書</h3>
+        <img class="report-image" src={resultCharacter.reportImage} alt="分析報告書" loading="lazy" />
+        <a class="btn btn-primary download-btn" href={resultCharacter.reportImage} download>📥 下載報告書</a>
+      </div>
+    {/if}
+
+    {#if resultCharacter && resultCharacter.realExample}
+      <div class="real-example-card" style="border-color: {resultCharacter.color}; box-shadow: 6px 6px 0 {resultCharacter.color};">
+        <h3>🌟 實際案例<br>{resultCharacter.realExample.title}</h3>
+        <p>{resultCharacter.realExample.content}</p>
       </div>
     {/if}
 
@@ -789,41 +775,39 @@
     color: var(--gray);
   }
 
-  .report-card {
+  .report-image-container {
     background: var(--paper); border: 3px solid var(--ink); border-radius: 24px;
     padding: 32px; box-shadow: 6px 6px 0 var(--ink); margin-bottom: 32px;
+    text-align: center;
   }
-  .report-header h3 {
-    font-family: 'Caveat', cursive; font-size: 2rem; margin-bottom: 8px;
+  .report-image-container h3 {
+    font-family: 'Caveat', cursive; font-size: 2rem; margin-bottom: 16px;
   }
-  .report-subtitle {
-    font-size: 1.05rem; font-weight: 800; color: var(--ink);
+  .report-image {
+    max-width: 100%; height: auto; border: 3px solid var(--ink); border-radius: 12px;
+    margin-bottom: 24px; display: block;
   }
-  .report-core {
-    display: grid; gap: 12px; margin: 20px 0 24px;
+  .download-btn {
+    display: inline-block; background: var(--teal); color: #fff;
+    border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink);
+    padding: 12px 28px; border-radius: 12px; font-weight: 800; font-size: 1rem;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
   }
-  .report-core-item {
-    background: var(--cream); border: 2px solid var(--ink); border-radius: 16px;
-    padding: 12px 16px; display: grid; gap: 6px;
+  .download-btn:hover {
+    box-shadow: 6px 6px 0 var(--ink); transform: translate(-2px, -2px);
   }
-  .report-core-label {
-    font-size: 0.8rem; font-weight: 800; color: var(--gray);
-    text-transform: uppercase; letter-spacing: 0.04em;
+
+  .real-example-card {
+    background: var(--paper); border: 3px solid var(--ink); border-radius: 24px;
+    padding: 32px; box-shadow: 6px 6px 0 var(--ink); margin-bottom: 32px;
+    text-align: left;
   }
-  .report-core-text { font-size: 0.98rem; line-height: 1.6; color: var(--ink); }
-  .report-section { margin-bottom: 22px; }
-  .report-section h4 {
-    font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;
+  .real-example-card h3 {
+    font-size: 1.4rem; line-height: 1.5; margin-bottom: 12px; font-weight: 800;
   }
-  .report-section p {
-    color: var(--gray); line-height: 1.75; margin-bottom: 12px;
+  .real-example-card p {
+    color: var(--gray); line-height: 1.8; font-size: 1.05rem;
   }
-  .report-section ul,
-  .report-section ol {
-    padding-left: 20px; margin-bottom: 14px; color: var(--gray);
-  }
-  .report-section li { margin-bottom: 10px; line-height: 1.7; }
-  .report-section strong { color: var(--ink); }
 
   .result-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
   .btn-coral {
