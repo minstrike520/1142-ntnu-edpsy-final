@@ -2,19 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="心腦筆記 | 心理學 × 學習法">
+<Layout title="飛吧！學習魂 | 排球少年 × 學習理論的靈魂歸屬趣味測驗">
   <div id="page-home">
     <div class="hero">
-      <!-- Floating stickers -->
-      <div class="stickers" id="stickersContainer"></div>
+      <!-- Extremely large, extremely faint text background -->
+      <div class="bg-text-fly" aria-hidden="true">飛 べ</div>
 
-      <div class="hero-badge">✨ 心理學 × 學習法 科普基地</div>
+      <div class="hero-badge">✨ 教心KOL小組專題</div>
       <h1>
-        認識你的<br>
-        <span class="highlight">大腦</span>，<br>
-        解鎖學習力！
+        飛吧！<br>
+        <span class="highlight">學習魂</span>！
       </h1>
-      <p>用有趣的心理測驗與科普文章，探索人類心智的奧秘。你是哪種學習型人格？現在就來揭曉！</p>
+      <h2 class="hero-subtitle">排球少年 × 學習理論的靈魂歸屬趣味測驗</h2>
+      <p>「正因為沒有翅膀，所以人們才會尋找飛翔的辦法。」<br>只要找對了自己的球風與戰術，你也能在課業上「跳」得更高、「扣」得更準！</p>
       <div class="hero-buttons">
         <a class="btn btn-primary" href="/quiz">🎯 開始測驗</a>
         <a class="btn btn-secondary" href="/blog">📖 瀏覽文章</a>
@@ -28,14 +28,14 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Feature section -->
     <div class="home-features">
-      <h2 class="section-title">🗂️ 探索這裡</h2>
+      <h2 class="section-title">🗂️ 網站特色</h2>
       <div class="features-grid">
         <a class="feature-card card-coral" href="/quiz">
           <div class="tape washi-top" style="background:rgba(255,112,67,0.4);"></div>
           <span class="card-tag">HOT 🔥</span>
           <span class="card-icon">🎭</span>
           <h3>學習型人格測驗</h3>
-          <p>10 道情境題，找出你在《學習冒險隊》中對應的角色人格！你是穩重的分析師、勇敢的探索者，還是溫暖的協作者？</p>
+          <p>10 道情境題，找出你在《排球少年!!》中對應的角色人格！你是像影山一樣的觀察模仿者，還是像北信介一樣的日常自律者？</p>
         </a>
         <a class="feature-card card-teal" href="/blog">
           <div class="tape washi-top" style="background:rgba(38,166,154,0.4);"></div>
@@ -55,24 +55,7 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </Layout>
 
-<script>
-  function initStickers() {
-    const emojis = ['🧠','💡','📚','✏️','🔬','🎯','💬','🌟','📝','🎨','🦋','🌱','⚡','🔑','🎭'];
-    const container = document.getElementById('stickersContainer');
-    if (!container) return;
-    for (let i = 0; i < 18; i++) {
-      const s = document.createElement('div');
-      s.className = 'sticker';
-      s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      s.style.left = Math.random() * 100 + '%';
-      s.style.animationDuration = (12 + Math.random() * 16) + 's';
-      s.style.animationDelay = (Math.random() * 14) + 's';
-      s.style.fontSize = (1.6 + Math.random() * 1.8) + 'rem';
-      container.appendChild(s);
-    }
-  }
-  initStickers();
-</script>
+
 
 <style>
   #page-home {
@@ -88,19 +71,21 @@ import Layout from '../layouts/Layout.astro';
     position: relative;
   }
 
-  /* Floating stickers background */
-  .stickers {
-    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
-  }
-  :global(.sticker) {
-    position: absolute; font-size: 2.4rem; opacity: 0.18;
-    animation: floatSticker linear infinite;
-  }
-  @keyframes floatSticker {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.18; }
-    90% { opacity: 0.18; }
-    100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+  /* Extremely large, extremely faint text background "飛べ" */
+  .bg-text-fly {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(12rem, 32vw, 26rem);
+    color: var(--ink);
+    opacity: 0.035; /* Extremely faint */
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    white-space: nowrap;
   }
 
   .hero-badge {
@@ -112,6 +97,7 @@ import Layout from '../layouts/Layout.astro';
     box-shadow: 3px 3px 0 var(--ink);
     margin-bottom: 24px;
     animation: bounceIn 0.8s cubic-bezier(.36,.07,.19,.97);
+    position: relative; z-index: 1;
   }
   @keyframes bounceIn {
     0% { transform: scale(0) rotate(-10deg); }
@@ -124,7 +110,7 @@ import Layout from '../layouts/Layout.astro';
     font-size: clamp(3.2rem, 10vw, 7rem);
     font-weight: 700; line-height: 1.05;
     color: var(--ink); margin-bottom: 16px;
-    position: relative;
+    position: relative; z-index: 1;
     animation: slideUp 0.9s ease both 0.2s;
   }
   @keyframes slideUp {
@@ -144,15 +130,28 @@ import Layout from '../layouts/Layout.astro';
     border-radius: 4px;
   }
 
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    font-weight: 700;
+    color: var(--coral);
+    margin-top: -8px;
+    margin-bottom: 24px;
+    font-family: 'Nunito', 'Noto Serif TC', sans-serif;
+    animation: slideUp 0.9s ease both 0.3s;
+    position: relative; z-index: 1;
+  }
+
   .hero p {
     font-size: clamp(1rem, 2.5vw, 1.3rem);
     color: var(--gray); max-width: 560px; line-height: 1.7;
     margin-bottom: 36px;
+    position: relative; z-index: 1;
     animation: slideUp 0.9s ease both 0.4s;
   }
 
   .hero-buttons {
     display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    position: relative; z-index: 1;
     animation: slideUp 0.9s ease both 0.6s;
   }
 
@@ -160,6 +159,7 @@ import Layout from '../layouts/Layout.astro';
   .scroll-worm {
     position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 6px;
+    z-index: 1;
     animation: fadeInUp 1s ease both 1s;
   }
   @keyframes fadeInUp { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
