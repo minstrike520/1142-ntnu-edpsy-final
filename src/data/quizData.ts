@@ -49,7 +49,7 @@ export const CHARACTERS: Character[] = [
     color: '#7c4dff',
     trait: '觀察模仿型',
     image: '/kageyama_tobio.webp',
-    reportImage: '/report_kageyama_tobio.jpg',
+    reportImage: '/report_kageyama_tobio.png',
     desc: '你擅長觀察高手的解題與規劃，將關鍵步驟內化成自己的學習系統。',
     realExample: {
       title: '【美國籃球巨星：科比·布萊恩 (Kobe Bryant)】',
@@ -63,7 +63,7 @@ export const CHARACTERS: Character[] = [
     color: '#ff7043',
     trait: '自我調整型',
     image: '/kita_shinsuke.webp',
-    reportImage: '/report_kita_shinsuke.jpg',
+    reportImage: '/report_kita_shinsuke.png',
     desc: '你擅長用內在對話監控自己，靠紀律與自我指導穩定推進。',
     realExample: {
       title: '【日本傳奇棒球名將：鈴木一朗】',
@@ -77,7 +77,7 @@ export const CHARACTERS: Character[] = [
     color: '#26a69a',
     trait: '雙碼整合型',
     image: '/hinata_shouyou.jpg',
-    reportImage: '/report_hinata_shouyou.jpg',
+    reportImage: '/report_hinata_shouyou.png',
     desc: '你用圖像與文字雙軌處理資訊，將抽象概念轉化成清晰畫面。',
     realExample: {
       title: '【世紀天才科學家：阿爾伯特·愛因斯坦 (Albert Einstein)】',
@@ -91,7 +91,7 @@ export const CHARACTERS: Character[] = [
     color: '#f06292',
     trait: '自我實現型',
     image: '/oikawa_tooru.jpg',
-    reportImage: '/report_oikawa_tooru.jpg',
+    reportImage: '/report_oikawa_tooru.png',
     desc: '你被內在成長驅動，重視意義感與舞台感，投入時爆發力十足。',
     realExample: {
       title: '【發明大王：湯瑪斯·愛迪生 (Thomas Edison)】',
@@ -105,7 +105,7 @@ export const CHARACTERS: Character[] = [
     color: '#66bb6a',
     trait: '操作制約型',
     image: '/kozume_kenma.jpg',
-    reportImage: '/report_kozume_kenma.jpg',
+    reportImage: '/report_kozume_kenma.png',
     desc: '你偏好明確的回饋機制，用獎勵與後果塑造穩定的讀書習慣。',
     realExample: {
       title: '【知名心理學家與作家：B.F. 史金納 (B.F. Skinner)】',
